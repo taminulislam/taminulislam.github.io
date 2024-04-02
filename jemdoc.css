@@ -144,8 +144,9 @@ h1, h2 {
 	border-bottom: 1px solid #aaaaaa;
 }
 
+
 h3 {
-	color: #527bbd;
+	color: #030c0a;
 	margin-top: 0.7em;
 	margin-bottom: 0.3em;
 	padding-bottom: 0.2em;
@@ -403,6 +404,54 @@ table.imgtable, table.imgtable td {
 @viewport {
   width: device-width ;
   zoom: 1.0 ;
+}
+
+@keyframes fadeIn {
+	from {
+	  opacity: 0;
+	}
+	to {
+	  opacity: 1;
+	}
+  }
+  
+  .news-item {
+	animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .news-section {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.news-section h2 {
+    margin-top: 0;
+}
+
+.news-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.news-section li {
+    margin-bottom: 20px;
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.blinking-logo {
+    display: inline-block;
+    width: 20px; /* adjust size as needed */
+    height: 20px; /* adjust size as needed */
+    background-image: url('misc/star.avif');
+    background-size: contain;
+    animation: blink 1s infinite;
 }
 
 
