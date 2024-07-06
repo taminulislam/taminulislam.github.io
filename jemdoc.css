@@ -455,3 +455,27 @@ table.imgtable, table.imgtable td {
 }
 
 
+.menu-item i {
+    margin-right: 20px; /* Space between the icon and text */
+    color: #000000; /* Icon color */
+}
+
+.menu-item a {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    text-decoration: none; /* Removes underline from links */
+    color: inherit; /* Ensures the text color matches other text */
+}
+
+.menu-item a:hover {
+    text-decoration: underline; /* Underline on hover for better interaction feedback */
+}
+
+h2 i {
+    margin-right: 3px; /* Space between the icon and text */
+    vertical-align: top; /* Aligns the icon with the middle of the text line */
+    color: #2c3e50; /* Icon color, can be adjusted to fit your design */
+}
+
+
