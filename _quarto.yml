@@ -27,17 +27,16 @@ csl: files/bib/chicago-author-date.csl
 
 
 
-pagetitle: "{{< meta title >}} | Toqi Tahamid Sarker"
+pagetitle: "{{< meta title >}} | Taminul Islam"
 description-meta: "{{< meta description >}}"
-author-meta: "Toqi Tahamid Sarker"
+author-meta: "Taminul Islam"
 
 website:
-  title: "**Toqi** Tahamid Sarker"
-  description: "Toqi Tahamid Sarker is interested in data science & deep learning."
-  google-analytics: "G-3THLGK2G1N"
-  favicon: "/files/favicon-512.png"
-  site-url: "https://toqitahamid.github.io"
-  repo-url: "https://github.com/toqitahamid/toqitahamid.github.io"
+  title: "**Taminul** Islam"
+  description: "Taminul Islam is interested in computer vision and deep learning."
+  favicon: "./site/files/favicon-512.png"
+  site-url: "https://taminulislam.github.io"
+  repo-url: "https://github.com/taminulislam/taminulislam.github.io"
   repo-actions: []
   # open-graph: true
   repo-branch: master
@@ -45,11 +44,11 @@ website:
   search: true
 
 
-  twitter-card: 
-    # image: "/files/profiles/twitter-card-large.png"
-    card-style: summary_large_image
-    creator: "@toqitahamid"
-    site: "@toqitahamid"
+  # twitter-card: 
+  #   # image: "/files/profiles/twitter-card-large.png"
+  #   card-style: summary_large_image
+  #   creator: "@toqitahamid"
+  #   site: "@toqitahamid"
 
   open-graph: 
     # image: "/files/profiles/twitter-card-large.png"
@@ -71,22 +70,22 @@ website:
       - text: "Research"
         file: research/index.qmd
       - text: "{{< ai google-scholar size=lg >}}"
-        href: "https://scholar.google.com/citations?user=i1SmuwYAAAAJ&hl=en"
+        href: "https://scholar.google.com/citations?user=Kgo_S9sAAAAJ&hl=en&oi=ao"
       # - text: "{{< ai semantic-scholar size=lg >}}"
       #   href: "https://scholar.google.com/citations?user=i1SmuwYAAAAJ&hl=en"
       - icon: github
-        href: "https://github.com/toqitahamid/"
+        href: "https://github.com/taminulislam/"
       - icon: twitter
         aria-label: twitter
-        href: https://twitter.com/toqitahamid
+        href: https://twitter.com/taminulislam
       - icon: linkedin
         aria-label: linkedin
-        href: https://www.linkedin.com/in/toqi
+        href: https://www.linkedin.com/in/taminul-islam
 
 
   page-footer:
       center: |
-        <span class="faux-block">{{< fa brands creative-commons >}} {{< var years >}} Toqi Tahamid Sarker</span>
+        <span class="faux-block">{{< fa brands creative-commons >}} {{< var years >}} Taminul Islam</span>
 
     
 
