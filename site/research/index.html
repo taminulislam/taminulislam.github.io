@@ -149,6 +149,69 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
         box-shadow: 0 4px 16px rgba(52, 152, 219, 0.2) !important;
         transform: translateY(-2px) !important;
       }
+      
+      /* Custom Year Filter Button Colors */
+      .year-filter .btn {
+        border-width: 2px;
+        font-weight: 500;
+        padding: 8px 16px;
+        margin: 2px;
+        transition: all 0.3s ease;
+      }
+      
+      /* Active button styling */
+      .year-filter .btn.btn-primary {
+        background-color: #2c3e50 !important;
+        border-color: #2c3e50 !important;
+        color: white !important;
+      }
+      
+      .year-filter .btn.btn-primary:hover {
+        background-color: #34495e !important;
+        border-color: #34495e !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(44, 62, 80, 0.3);
+      }
+      
+      /* Outline buttons styling */
+      .year-filter .btn.btn-outline-primary {
+        background-color: transparent !important;
+        border-color: #2c3e50 !important;
+        color: #2c3e50 !important;
+      }
+      
+      .year-filter .btn.btn-outline-primary:hover {
+        background-color: #2c3e50 !important;
+        border-color: #2c3e50 !important;
+        color: white !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(44, 62, 80, 0.3);
+      }
+      
+      /* Focus states for accessibility */
+      .year-filter .btn:focus {
+        box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.25) !important;
+      }
+      
+      /* Smooth transitions for project filtering */
+      .project {
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+      }
+      
+      .project.fade-in {
+        animation: fadeInUp 0.5s ease-out forwards;
+      }
+      
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 </style>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -1936,6 +1999,64 @@ No matching items
 
 </main>
 <script id="quarto-html-after-body" src="../site_libs/quarto-after-body/quarto-after-body.js" type="application/javascript">
+</script>
+
+<!-- Year Filter JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const yearButtons = document.querySelectorAll('.year-btn');
+    const projects = document.querySelectorAll('.project');
+    
+    // Add click event listeners to all year filter buttons
+    yearButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const selectedYear = this.getAttribute('data-year');
+            
+            // Update button states
+            yearButtons.forEach(btn => {
+                btn.classList.remove('btn-primary');
+                btn.classList.add('btn-outline-primary');
+            });
+            
+            // Set clicked button as active
+            this.classList.remove('btn-outline-primary');
+            this.classList.add('btn-primary');
+            
+            // Filter projects
+            filterProjects(selectedYear);
+        });
+    });
+    
+    function filterProjects(year) {
+        projects.forEach(project => {
+            const projectYear = project.getAttribute('data-year');
+            
+            if (year === 'all' || projectYear === year) {
+                project.style.display = 'block';
+                // Add fade-in animation
+                project.style.opacity = '0';
+                setTimeout(() => {
+                    project.style.opacity = '1';
+                }, 50);
+            } else {
+                project.style.display = 'none';
+            }
+        });
+        
+        // Update the visible count or show no results message if needed
+        const visibleProjects = document.querySelectorAll('.project[style*="display: block"], .project:not([style*="display: none"])');
+        
+        // Optional: Add a subtle animation effect
+        projects.forEach((project, index) => {
+            if (project.style.display !== 'none') {
+                project.style.animationDelay = (index * 0.1) + 's';
+            }
+        });
+    }
+    
+    // Initialize with 'All' selected
+    filterProjects('all');
+});
 </script>
 
 </div> <!-- /content -->
