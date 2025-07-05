@@ -120,99 +120,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
 </script>
-<style>
-      .quarto-title-block .quarto-title-banner {
-        background: #011627;
-      }
-      
-      /* Fixed size and styling for all publication images */
-      .feature-image {
-        flex: 0 0 250px !important;
-        max-width: 250px !important;
-        min-width: 250px !important;
-      }
-      
-      .feature-image img {
-        width: 250px !important;
-        height: 200px !important;
-        object-fit: contain !important;
-        border: 2px solid #e1e5e9 !important;
-        border-radius: 8px !important;
-        padding: 8px !important;
-        background-color: #ffffff !important;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
-        transition: all 0.3s ease !important;
-      }
-      
-      .feature-image img:hover {
-        border-color: #3498db !important;
-        box-shadow: 0 4px 16px rgba(52, 152, 219, 0.2) !important;
-        transform: translateY(-2px) !important;
-      }
-      
-      /* Custom Year Filter Button Colors */
-      .year-filter .btn {
-        border-width: 2px;
-        font-weight: 500;
-        padding: 8px 16px;
-        margin: 2px;
-        transition: all 0.3s ease;
-      }
-      
-      /* Active button styling */
-      .year-filter .btn.btn-primary {
-        background-color: #2c3e50 !important;
-        border-color: #2c3e50 !important;
-        color: white !important;
-      }
-      
-      .year-filter .btn.btn-primary:hover {
-        background-color: #34495e !important;
-        border-color: #34495e !important;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 8px rgba(44, 62, 80, 0.3);
-      }
-      
-      /* Outline buttons styling */
-      .year-filter .btn.btn-outline-primary {
-        background-color: transparent !important;
-        border-color: #2c3e50 !important;
-        color: #2c3e50 !important;
-      }
-      
-      .year-filter .btn.btn-outline-primary:hover {
-        background-color: #2c3e50 !important;
-        border-color: #2c3e50 !important;
-        color: white !important;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 8px rgba(44, 62, 80, 0.3);
-      }
-      
-      /* Focus states for accessibility */
-      .year-filter .btn:focus {
-        box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.25) !important;
-      }
-      
-      /* Smooth transitions for project filtering */
-      .project {
-        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-      }
-      
-      .project.fade-in {
-        animation: fadeInUp 0.5s ease-out forwards;
-      }
-      
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-</style>
+<link rel="stylesheet" href="../html/research-styles.css">
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -396,14 +304,14 @@ main
                   <section id="bibtex-citation" class="level2">
                     <div class="sourceCode">
                       <pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">islam2025weedswin</span>,</span>
-                  <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>    = {WeedSwin hierarchical vision transformer with SAM-2 for multi-stage weed detection and classification},</span>
-                  <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>   = {Islam, Taminul and Sarker, Toqi Tahamid and Ahmed, Khaled R and Rankrape, Cristiana Bernardi and Gage, Karla},</span>
-                  <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>  = {Scientific Reports},</span>
-                  <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>   = {15},</span>
-                  <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>   = {1},</span>
-                  <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>    = {23274},</span>
-                  <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>     = {2025},</span>
-                  <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span> = {Nature Publishing Group UK London}</span>
+                  <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>={WeedSwin hierarchical vision transformer with SAM-2 for multi-stage weed detection and classification},</span>
+                  <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>={Islam, Taminul and Sarker, Toqi Tahamid and Ahmed, Khaled R and Rankrape, Cristiana Bernardi and Gage, Karla},</span>
+                  <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>={Scientific Reports},</span>
+                  <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>={15},</span>
+                  <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>={1},</span>
+                  <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>={23274},</span>
+                  <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>={2025},</span>
+                  <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>={Nature Publishing Group UK London}</span>
                   <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre>
                       <button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
                   </div>
@@ -420,6 +328,12 @@ main
               <li class="project-link">
                 <a href="https://github.com/taminulislam/weedswin" target="_blank">
                   <i class="fa-brands fa-github"></i> Code
+                </a>
+              </li>
+              
+              <li class="project-link">
+                <a href="https://zenodo.org/records/15808623" target="_blank">
+                  <i class="fa-solid fa-bar-chart"></i> Dataset
                 </a>
               </li>
             </ul>
@@ -904,6 +818,12 @@ main
           <li class="project-link">
               <a href="https://arxiv.org/abs/2506.05360" target="_blank">
                   <i class="fa-solid fa-file-pdf"></i> Preprint
+              </a>
+          </li>
+          
+          <li class="project-link">
+              <a href="https://github.com/taminulislam/carbonext_and_carboformer" target="_blank">
+                  <i class="fa-brands fa-github"></i> Code
               </a>
           </li>
       </ul>
@@ -2002,62 +1922,7 @@ No matching items
 </script>
 
 <!-- Year Filter JavaScript -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const yearButtons = document.querySelectorAll('.year-btn');
-    const projects = document.querySelectorAll('.project');
-    
-    // Add click event listeners to all year filter buttons
-    yearButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const selectedYear = this.getAttribute('data-year');
-            
-            // Update button states
-            yearButtons.forEach(btn => {
-                btn.classList.remove('btn-primary');
-                btn.classList.add('btn-outline-primary');
-            });
-            
-            // Set clicked button as active
-            this.classList.remove('btn-outline-primary');
-            this.classList.add('btn-primary');
-            
-            // Filter projects
-            filterProjects(selectedYear);
-        });
-    });
-    
-    function filterProjects(year) {
-        projects.forEach(project => {
-            const projectYear = project.getAttribute('data-year');
-            
-            if (year === 'all' || projectYear === year) {
-                project.style.display = 'block';
-                // Add fade-in animation
-                project.style.opacity = '0';
-                setTimeout(() => {
-                    project.style.opacity = '1';
-                }, 50);
-            } else {
-                project.style.display = 'none';
-            }
-        });
-        
-        // Update the visible count or show no results message if needed
-        const visibleProjects = document.querySelectorAll('.project[style*="display: block"], .project:not([style*="display: none"])');
-        
-        // Optional: Add a subtle animation effect
-        projects.forEach((project, index) => {
-            if (project.style.display !== 'none') {
-                project.style.animationDelay = (index * 0.1) + 's';
-            }
-        });
-    }
-    
-    // Initialize with 'All' selected
-    filterProjects('all');
-});
-</script>
+<script src="../html/research-scripts.js"></script>
 
 </div> <!-- /content -->
 <footer class="footer">
