@@ -116,6 +116,24 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
 <meta name="twitter:creator" content="@taminul-islam">
 <meta name="twitter:site" content="@taminul-islam">
 <meta name="twitter:card" content="summary_large_image">
+
+<script>
+// Selective redirect script - excludes CarboNeXT project from redirects
+(function() {
+    // Only run redirect logic if we're on a GitHub Pages domain
+    if (window.location.hostname.includes('github.io')) {
+        const pathname = window.location.pathname;
+        
+        // Don't redirect if it's the CarboNeXT project
+        if (!pathname.startsWith('/carbonext_and_carboformer')) {
+            // Redirect to custom domain for all other paths
+            const newUrl = 'https://taminul.com' + pathname + window.location.search;
+            window.location.replace(newUrl);
+        }
+    }
+})();
+</script>
+
 </head>
 
 <body class="nav-fixed">
