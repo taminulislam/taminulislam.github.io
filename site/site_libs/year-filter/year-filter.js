@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Get all year filter buttons and projects
-    const yearButtons = document.querySelectorAll('.year-btn');
+    const yearButtons = document.querySelectorAll('.year-btn-simple');
     const projects = document.querySelectorAll('.project');
 
     // Add click event listener to each button
