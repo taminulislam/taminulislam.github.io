@@ -180,6 +180,23 @@ ul.task-list li input[type="checkbox"] {
     height: auto;
   }
   
+  /* Adjust image sizes for mobile */
+  img[style*="max-width: 800px"] {
+    max-width: 95% !important;
+  }
+  
+  img[style*="max-width: 700px"] {
+    max-width: 95% !important;
+  }
+  
+  img[style*="max-width: 650px"] {
+    max-width: 95% !important;
+  }
+  
+  img[style*="max-width: 600px"] {
+    max-width: 95% !important;
+  }
+  
   /* Better spacing for mobile */
   div[style*="margin: 3rem 0"] {
     margin: 2rem 0 !important;
@@ -371,7 +388,7 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
 
   <h2 class="section-title">🏗️ WeedSwin Architecture</h2>
   <div style="text-align: center; margin: 2rem 0;">
-    <img src="arch.png" alt="WeedSwin Architecture" class="img-fluid" style="max-width: 1200px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <img src="arch.png" alt="WeedSwin Architecture" class="img-fluid" style="max-width: 800px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
     <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 900px; margin-left: auto; margin-right: auto;">
       <strong>WeedSwin Hierarchical Architecture:</strong> The novel architecture combines hierarchical vision transformer blocks with 
       spatial attention mechanisms for multi-scale feature extraction. The model processes input images through multiple stages, 
@@ -400,7 +417,7 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
 
   <div style="text-align: center; margin: 3rem 0;">
     <h3 style="color: #2E8B57; margin-bottom: 1rem;">🤖 SAM-2 Integration</h3>
-    <img src="cv-sam2.png" alt="SAM-2 Integration" class="img-fluid" style="max-width: 800px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <img src="cv-sam2.png" alt="SAM-2 Integration" class="img-fluid" style="max-width: 650px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
     <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 800px; margin-left: auto; margin-right: auto;">
       <strong>SAM-2 Integration:</strong> Advanced preprocessing using SAM-2 for high-quality annotations with segmentation masks and precise bounding boxes. 
       This innovative approach enhances the dataset quality by providing accurate pixel-level annotations, enabling the WeedSwin model to learn fine-grained 
@@ -437,7 +454,7 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
   <!-- Main Performance Results -->
   <div style="text-align: center; margin: 3rem 0;">
     <h3 style="color: #2E8B57; margin-bottom: 1rem;">🏆 Main Performance Results</h3>
-    <img src="main_result.png" alt="Main Results" class="img-fluid" style="max-width: 1100px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <img src="main_result.png" alt="Main Results" class="img-fluid" style="max-width: 700px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
     <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
       <strong>Outstanding Performance Metrics:</strong> WeedSwin demonstrates superior performance with <strong>0.993 ± 0.004 mAP</strong> and 
       <strong>0.985 mAR</strong> scores, significantly outperforming DINO Transformer (ResNet-101 and Swin backbones), DETR, EfficientNet B4, 
@@ -449,7 +466,7 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
   <!-- Detection Examples -->
   <div style="text-align: center; margin: 3rem 0;">
     <h3 style="color: #2E8B57; margin-bottom: 1rem;">🎯 Detection & Classification Examples</h3>
-    <img src="detection_result.png" alt="Detection Results" class="img-fluid" style="max-width: 1100px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <img src="detection_result.png" alt="Detection Results" class="img-fluid" style="max-width: 650px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
     <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
       <strong>Multi-Stage Weed Detection:</strong> Qualitative results demonstrate WeedSwin's capability to accurately detect and classify 
       16 weed species across their 11 growth stages. The examples showcase the model's robustness in handling complex morphological variations, 
@@ -461,7 +478,7 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
   <!-- Comparative Analysis -->
   <div style="text-align: center; margin: 3rem 0;">
     <h3 style="color: #2E8B57; margin-bottom: 1rem;">📈 Comparative Analysis</h3>
-    <img src="result_comp.png" alt="Result Comparison" class="img-fluid" style="max-width: 1100px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <img src="result_comp.png" alt="Result Comparison" class="img-fluid" style="max-width: 700px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
     <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
       <strong>Comprehensive Benchmark Comparison:</strong> Detailed performance analysis against state-of-the-art object detection architectures 
       including DINO Transformer with ResNet-101 and Swin backbones, Detection Transformer (DETR), EfficientNet B4, YOLO v8, and RetinaNet. 
@@ -473,7 +490,7 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
   <!-- Ablation Study -->
   <div style="text-align: center; margin: 3rem 0;">
     <h3 style="color: #2E8B57; margin-bottom: 1rem;">🔬 Ablation Study Analysis</h3>
-    <img src="ablation.png" alt="Ablation Study" class="img-fluid" style="max-width: 1100px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <img src="ablation.png" alt="Ablation Study" class="img-fluid" style="max-width: 700px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
     <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
       <strong>Component-wise Architecture Analysis:</strong> Systematic ablation study revealing the contribution of each WeedSwin component 
       to the overall performance. The analysis demonstrates the effectiveness of the hierarchical transformer design, the impact of 
@@ -546,7 +563,7 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
     </p>
     
     <div style="position: relative; display: inline-block;">
-      <img src="poster/weed.png" alt="WeedVision Conference Poster" class="img-fluid" style="max-width: 900px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); cursor: pointer;" onclick="window.open('poster/weeds_poster.pdf', '_blank')">
+      <img src="poster/weed.png" alt="WeedVision Conference Poster" class="img-fluid" style="max-width: 600px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); cursor: pointer;" onclick="window.open('poster/weeds_poster.pdf', '_blank')">
       <div style="position: absolute; bottom: 15px; right: 15px; background: rgba(0,0,0,0.8); color: white; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem;">
         <i class="fas fa-download"></i> Click to view PDF
       </div>
