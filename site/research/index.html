@@ -49,6 +49,183 @@ ul.task-list li input[type="checkbox"] {
   .pub-type-book {
     background-color: #ff9800;
   }
+
+  /* Mobile Responsive Styles */
+  @media (max-width: 768px) {
+    /* Year filter responsive */
+    .year-filter {
+      padding: 0 1rem;
+    }
+    
+    .year-filter .btn {
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      margin: 1px;
+      min-width: 60px;
+    }
+    
+    /* Main content adjustments */
+    .content {
+      padding: 0 1rem !important;
+    }
+    
+    .container-fluid {
+      padding: 0 1rem;
+    }
+    
+    /* Publication listings */
+    .project-container {
+      flex-direction: column !important;
+      gap: 15px !important;
+    }
+    
+    .project-content {
+      flex: 1 !important;
+    }
+    
+    .feature-image {
+      flex: none !important;
+      max-width: 100% !important;
+      min-width: auto !important;
+      width: 100% !important;
+      text-align: center;
+    }
+    
+    .feature-image img {
+      width: 100% !important;
+      max-width: 300px !important;
+      height: 180px !important;
+      margin: 0 auto;
+      display: block;
+    }
+    
+    /* Publication badges and text */
+    .pub-type-badge {
+      font-size: 10px;
+      padding: 2px 6px;
+    }
+    
+    .project-content p {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    
+    /* Project links */
+    .project-links {
+      flex-wrap: wrap !important;
+      gap: 8px !important;
+    }
+    
+    .project-link a {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+      border-radius: 15px;
+      display: inline-block;
+      min-width: 80px;
+      text-align: center;
+    }
+    
+    /* BibTeX content */
+    .bibtex-content {
+      position: static !important;
+      width: 100% !important;
+      margin-top: 10px !important;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .bibtex-content pre {
+      font-size: 0.75rem !important;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    
+    /* Spacing adjustments */
+    .project {
+      margin-bottom: 2rem;
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    h3 {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    /* Ultra small screens */
+    .year-filter {
+      padding: 0 0.5rem;
+    }
+    
+    .year-filter .btn {
+      padding: 5px 8px;
+      font-size: 0.8rem;
+      min-width: 50px;
+    }
+    
+    .content {
+      padding: 0 0.75rem !important;
+    }
+    
+    .container-fluid {
+      padding: 0 0.75rem;
+    }
+    
+    .feature-image img {
+      height: 150px !important;
+      max-width: 250px !important;
+    }
+    
+    .project-content p {
+      font-size: 0.85rem;
+    }
+    
+    .project-link a {
+      padding: 0.35rem 0.6rem;
+      font-size: 0.75rem;
+      min-width: 70px;
+    }
+    
+    .project {
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .pub-type-badge {
+      font-size: 9px;
+      padding: 2px 5px;
+    }
+    
+    .bibtex-content {
+      padding: 10px;
+    }
+    
+    .bibtex-content pre {
+      font-size: 0.7rem !important;
+    }
+    
+    h2 {
+      font-size: 1.3rem;
+    }
+    
+    h3 {
+      font-size: 1.1rem;
+    }
+  }
+
+  /* Global responsive images for research page */
+  .feature-image img,
+  .poster-thumbnail {
+    max-width: 100%;
+    height: auto;
+  }
 </style>
 
 
@@ -251,7 +428,7 @@ window.Quarto = {
 
 </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page container-fluid" id="quarto-document-content" style="max-width: 1200px; margin: 0 auto;">
 
   
 <!-- Filter by Year Section -->

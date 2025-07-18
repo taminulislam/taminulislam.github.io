@@ -25,7 +25,7 @@ ul.task-list li input[type="checkbox"] {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
   margin: 2rem 0;
 }
@@ -125,6 +125,134 @@ ul.task-list li input[type="checkbox"] {
 .project-card {
   position: relative;
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .project-card {
+    margin: 0 0.5rem;
+  }
+  
+  .project-image {
+    height: 160px;
+  }
+  
+  .project-content {
+    padding: 1.25rem;
+  }
+  
+  .project-title {
+    font-size: 1.2rem;
+  }
+  
+  .project-venue {
+    font-size: 0.85rem;
+  }
+  
+  .project-authors {
+    font-size: 0.85rem;
+  }
+  
+  .project-description {
+    font-size: 0.9rem;
+  }
+  
+  .project-links {
+    gap: 0.4rem;
+  }
+  
+  .project-link {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container-fluid {
+    margin-top: 2rem !important;
+    padding: 0 1rem;
+  }
+  
+  .coming-soon-badge {
+    top: 8px;
+    right: 8px;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-grid {
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .project-card {
+    margin: 0 0.25rem;
+  }
+  
+  .project-image {
+    height: 140px;
+  }
+  
+  .project-content {
+    padding: 1rem;
+  }
+  
+  .project-title {
+    font-size: 1.1rem;
+  }
+  
+  .project-venue {
+    font-size: 0.8rem;
+  }
+  
+  .project-authors {
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .project-description {
+    font-size: 0.85rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .project-link {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
+    flex: 1;
+    text-align: center;
+    min-width: 80px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .project-links {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  
+  .container-fluid {
+    margin-top: 1.5rem !important;
+    padding: 0 0.75rem;
+  }
+  
+  .coming-soon-badge {
+    top: 6px;
+    right: 6px;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+  }
+}
 </style>
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -203,13 +331,13 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
 
 <main class="content column-page-left" id="quarto-document-content">
 
-  <div class="container" style="margin-top: 3rem;">
+  <div class="container-fluid" style="margin-top: 3rem; max-width: 1200px;">
     
     <div class="project-grid">
       
       <!-- WeedSwin Project -->
       <div class="project-card">
-        <img src="weedswin/arch.png" alt="WeedSwin Architecture" class="project-image">
+        <img src="weedswin/arch.png" alt="WeedSwin Architecture" class="project-image img-fluid">
         <div class="project-content">
           <div class="project-venue">Scientific Reports (Nature) 2025</div>
           <h3 class="project-title">WeedSwin</h3>

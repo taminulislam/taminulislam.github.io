@@ -22,6 +22,32 @@
   transition: all 0.3s ease !important;
 }
 
+/* Mobile responsive overrides */
+@media (max-width: 768px) {
+  .feature-image {
+    flex: none !important;
+    max-width: 100% !important;
+    min-width: auto !important;
+    width: 100% !important;
+    text-align: center;
+  }
+  
+  .feature-image img {
+    width: 100% !important;
+    max-width: 300px !important;
+    height: 180px !important;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .feature-image img {
+    height: 150px !important;
+    max-width: 250px !important;
+  }
+}
+
 .feature-image img:hover {
   border-color: #3498db !important;
   box-shadow: 0 4px 16px rgba(52, 152, 219, 0.2) !important;
