@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Taminul Islam">
-<meta name="description" content="WeedSwin: Hierarchical vision transformer with SAM-2 for multi-stage weed detection and classification">
+<meta name="description" content="WeedSwin hierarchical vision transformer with SAM-2 for multi-stage weed detection and classification">
 
 <title>WeedSwin | Taminul Islam</title>
 <style>
@@ -120,6 +120,129 @@ ul.task-list li input[type="checkbox"] {
   margin: 2rem 0;
   border-left: 5px solid #750505;
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .project-header {
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+  }
+  
+  .project-title {
+    font-size: 1.8rem !important;
+    line-height: 1.3;
+  }
+  
+  .authors {
+    font-size: 1rem;
+  }
+  
+  .affiliations {
+    font-size: 0.9rem;
+  }
+  
+  .section-title {
+    font-size: 1.4rem;
+    margin: 1.5rem 0 0.8rem 0;
+  }
+  
+  .abstract-section {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .links-section {
+    gap: 0.8rem;
+    margin: 1.5rem 0;
+    padding: 0 1rem;
+  }
+  
+  .project-link, .journal-badge {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    margin: 0.25rem;
+  }
+  
+  .results-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  /* Fix main content padding on mobile */
+  main.content {
+    padding: 0 1rem !important;
+  }
+  
+  /* Responsive images */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Better spacing for mobile */
+  div[style*="margin: 3rem 0"] {
+    margin: 2rem 0 !important;
+  }
+  
+  div[style*="margin: 2rem 0"] {
+    margin: 1.5rem 0 !important;
+  }
+  
+  /* Responsive text containers */
+  p[style*="max-width: 900px"],
+  p[style*="max-width: 1000px"],
+  p[style*="max-width: 800px"] {
+    max-width: 100% !important;
+    padding: 0 0.5rem;
+  }
+  
+  /* Code blocks responsive */
+  pre {
+    font-size: 0.8rem;
+    overflow-x: auto;
+  }
+  
+  /* Button styling for mobile */
+  a[style*="background: #750505"] {
+    display: block !important;
+    width: 100%;
+    max-width: 300px;
+    margin: 1rem auto !important;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-title {
+    font-size: 1.5rem !important;
+  }
+  
+  .section-title {
+    font-size: 1.2rem;
+  }
+  
+  main.content {
+    padding: 0 0.75rem !important;
+  }
+  
+  .abstract-section {
+    padding: 1rem;
+  }
+  
+  .project-link, .journal-badge {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  h3[style*="color: #2E8B57"] {
+    font-size: 1.1rem !important;
+  }
+  
+  h4[style*="color: #2E8B57"] {
+    font-size: 1rem !important;
+  }
+}
 </style>
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -211,7 +334,7 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
 
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 
-<main class="content column-page-left" id="quarto-document-content" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; text-align: left;">
+<main class="content column-page-left container-fluid" id="quarto-document-content" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; text-align: left;">
   <div class="links-section" style="text-align: center;">
     <span class="journal-badge">Nature: Scientific Reports</span>
     <a href="https://www.nature.com/articles/s41598-025-05092-z" class="project-link" target="_blank">
@@ -248,7 +371,7 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
 
   <h2 class="section-title">🏗️ WeedSwin Architecture</h2>
   <div style="text-align: center; margin: 2rem 0;">
-    <img src="arch.png" alt="WeedSwin Architecture" style="width: 100%; max-width: 1200px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <img src="arch.png" alt="WeedSwin Architecture" class="img-fluid" style="max-width: 1200px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
     <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 900px; margin-left: auto; margin-right: auto;">
       <strong>WeedSwin Hierarchical Architecture:</strong> The novel architecture combines hierarchical vision transformer blocks with 
       spatial attention mechanisms for multi-scale feature extraction. The model processes input images through multiple stages, 
@@ -277,7 +400,7 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
 
   <div style="text-align: center; margin: 3rem 0;">
     <h3 style="color: #2E8B57; margin-bottom: 1rem;">🤖 SAM-2 Integration</h3>
-    <img src="cv-sam2.png" alt="SAM-2 Integration" style="width: 100%; max-width: 800px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <img src="cv-sam2.png" alt="SAM-2 Integration" class="img-fluid" style="max-width: 800px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
     <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 800px; margin-left: auto; margin-right: auto;">
       <strong>SAM-2 Integration:</strong> Advanced preprocessing using SAM-2 for high-quality annotations with segmentation masks and precise bounding boxes. 
       This innovative approach enhances the dataset quality by providing accurate pixel-level annotations, enabling the WeedSwin model to learn fine-grained 
@@ -288,9 +411,9 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
   <h2 class="section-title">🌱 Dataset & Experimental Setup</h2>
   
   <div class="row" style="margin: 3rem 0;">
-    <div class="col-md-6" style="text-align: center;">
+    <div class="col-lg-6 col-md-12 mb-4" style="text-align: center;">
       <h3 style="color: #2E8B57; margin-bottom: 1rem;">🏠 Greenhouse Environment</h3>
-      <img src="greenhouse.png" alt="Greenhouse Setup" style="width: 100%; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+      <img src="greenhouse.png" alt="Greenhouse Setup" class="img-fluid" style="border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
       <p style="margin-top: 1rem; font-size: 1rem; color: #495057; text-align: left;">
         <strong>Controlled Greenhouse Environment:</strong> The systematic cultivation setup used for growing and documenting 16 weed species 
         across their complete 11-week lifecycle. This controlled environment ensures consistent conditions for accurate temporal data collection, 
@@ -298,9 +421,9 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
       </p>
     </div>
     
-    <div class="col-md-6" style="text-align: center;">
+    <div class="col-lg-6 col-md-12 mb-4" style="text-align: center;">
       <h3 style="color: #2E8B57; margin-bottom: 1rem;">📊 Growth Stage Dataset</h3>
-      <img src="dataset.png" alt="Dataset Growth Stages" style="width: 100%; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+      <img src="dataset.png" alt="Dataset Growth Stages" class="img-fluid" style="border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
       <p style="margin-top: 1rem; font-size: 1rem; color: #495057; text-align: left;">
         <strong>Growth Stage Examples:</strong> Representative weed species across 11-week lifecycle. (a,b) AMAPA at week 1 and 11; 
         (c,d) SIDSP at week 1 and 11; (e,f) AMATU at week 1 and 11; (g,h) SETPU at week 1 and 11. These examples illustrate 
@@ -314,7 +437,7 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
   <!-- Main Performance Results -->
   <div style="text-align: center; margin: 3rem 0;">
     <h3 style="color: #2E8B57; margin-bottom: 1rem;">🏆 Main Performance Results</h3>
-    <img src="main_result.png" alt="Main Results" style="width: 100%; max-width: 1100px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <img src="main_result.png" alt="Main Results" class="img-fluid" style="max-width: 1100px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
     <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
       <strong>Outstanding Performance Metrics:</strong> WeedSwin demonstrates superior performance with <strong>0.993 ± 0.004 mAP</strong> and 
       <strong>0.985 mAR</strong> scores, significantly outperforming DINO Transformer (ResNet-101 and Swin backbones), DETR, EfficientNet B4, 
@@ -326,7 +449,7 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
   <!-- Detection Examples -->
   <div style="text-align: center; margin: 3rem 0;">
     <h3 style="color: #2E8B57; margin-bottom: 1rem;">🎯 Detection & Classification Examples</h3>
-    <img src="detection_result.png" alt="Detection Results" style="width: 100%; max-width: 1100px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <img src="detection_result.png" alt="Detection Results" class="img-fluid" style="max-width: 1100px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
     <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
       <strong>Multi-Stage Weed Detection:</strong> Qualitative results demonstrate WeedSwin's capability to accurately detect and classify 
       16 weed species across their 11 growth stages. The examples showcase the model's robustness in handling complex morphological variations, 
@@ -338,7 +461,7 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
   <!-- Comparative Analysis -->
   <div style="text-align: center; margin: 3rem 0;">
     <h3 style="color: #2E8B57; margin-bottom: 1rem;">📈 Comparative Analysis</h3>
-    <img src="result_comp.png" alt="Result Comparison" style="width: 100%; max-width: 1100px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <img src="result_comp.png" alt="Result Comparison" class="img-fluid" style="max-width: 1100px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
     <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
       <strong>Comprehensive Benchmark Comparison:</strong> Detailed performance analysis against state-of-the-art object detection architectures 
       including DINO Transformer with ResNet-101 and Swin backbones, Detection Transformer (DETR), EfficientNet B4, YOLO v8, and RetinaNet. 
@@ -350,7 +473,7 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
   <!-- Ablation Study -->
   <div style="text-align: center; margin: 3rem 0;">
     <h3 style="color: #2E8B57; margin-bottom: 1rem;">🔬 Ablation Study Analysis</h3>
-    <img src="ablation.png" alt="Ablation Study" style="width: 100%; max-width: 1100px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <img src="ablation.png" alt="Ablation Study" class="img-fluid" style="max-width: 1100px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
     <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
       <strong>Component-wise Architecture Analysis:</strong> Systematic ablation study revealing the contribution of each WeedSwin component 
       to the overall performance. The analysis demonstrates the effectiveness of the hierarchical transformer design, the impact of 
@@ -361,7 +484,7 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
 
   <h2 class="section-title">🚀 Key Contributions & Impact</h2>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-lg-6 col-md-12 mb-4">
       <h4 style="color: #2E8B57;">🔬 Technical Innovations:</h4>
       <ul>
         <li><strong>🏗️ Novel WeedSwin Architecture:</strong> First hierarchical vision transformer specifically designed for multi-stage weed detection and classification</li>
@@ -370,7 +493,7 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
         <li><strong>⚡ Performance Excellence:</strong> Achieved 0.993 ± 0.004 mAP and 0.985 mAR with 218.27 FPS processing speed</li>
       </ul>
     </div>
-    <div class="col-md-6">
+    <div class="col-lg-6 col-md-12 mb-4">
       <h4 style="color: #2E8B57;">🌍 Practical Impact:</h4>
       <ul>
         <li><strong>🎯 Real-time Deployment:</strong> Fast inference suitable for practical agricultural automation systems</li>
@@ -423,7 +546,7 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
     </p>
     
     <div style="position: relative; display: inline-block;">
-      <img src="poster/weed.png" alt="WeedVision Conference Poster" style="width: 100%; max-width: 900px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); cursor: pointer;" onclick="window.open('poster/weeds_poster.pdf', '_blank')">
+      <img src="poster/weed.png" alt="WeedVision Conference Poster" class="img-fluid" style="max-width: 900px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); cursor: pointer;" onclick="window.open('poster/weeds_poster.pdf', '_blank')">
       <div style="position: absolute; bottom: 15px; right: 15px; background: rgba(0,0,0,0.8); color: white; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem;">
         <i class="fas fa-download"></i> Click to view PDF
       </div>
