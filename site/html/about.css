@@ -62,6 +62,11 @@
     color: gray;
   }
 
+  /* News section table font size to match other sections */
+  .table td {
+    font-size: 0.9rem !important;
+  }
+
 
 /* h3 {
     margin: 0 0 2rem !important;
