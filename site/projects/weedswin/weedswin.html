@@ -123,6 +123,35 @@ ul.task-list li input[type="checkbox"] {
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
+  /* Fix navbar centering on mobile - use flexbox approach */
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .navbar-brand-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin: 0 !important;
+  }
+  
+  .navbar-toggler {
+    order: 3;
+    flex-shrink: 0;
+  }
+  
+  /* Add invisible spacer to balance the toggler */
+  .navbar-container::before {
+    content: '';
+    width: 48px; /* Same width as navbar-toggler */
+    height: 1px;
+    order: 1;
+    flex-shrink: 0;
+  }
+  
   .project-header {
     padding: 1rem 0;
     margin-bottom: 1rem;
@@ -301,7 +330,7 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
 <div id="quarto-search-results"></div>
 <header id="quarto-header" class="headroom fixed-top">
   <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-    <div class="navbar-container container-fluid">
+    <!-- <div class="navbar-container container-fluid"> -->
     <div class="navbar-brand-container mx-auto">
       <a class="navbar-brand" href="../../../index.html">
       <span class="navbar-title"><strong>Taminul</strong> Islam</span>
