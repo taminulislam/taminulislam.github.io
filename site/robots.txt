@@ -21,8 +21,5 @@ Disallow: /Thumbs.db
 # Sitemap location
 Sitemap: https://taminul.com/sitemap.xml
 
-# Force HTTPS and non-www version
-Host: https://taminul.com
-
 # Crawl delay (optional - be respectful)
 Crawl-delay: 1 
