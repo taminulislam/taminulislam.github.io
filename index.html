@@ -394,17 +394,30 @@ gtag('event', 'page_view', {
 <meta name="twitter:card" content="summary_large_image">
 
 <script>
-// Selective redirect script - excludes CarboNeXT project from redirects
+// Comprehensive redirect script for HTTPS and domain consistency
 (function() {
-    // Only run redirect logic if we're on a GitHub Pages domain
-    if (window.location.hostname.includes('github.io')) {
-        const pathname = window.location.pathname;
-        
+    const currentHost = window.location.hostname;
+    const currentProtocol = window.location.protocol;
+    const pathname = window.location.pathname;
+    const search = window.location.search;
+    
+    // Force HTTPS redirect for all domains
+    if (currentProtocol === 'http:') {
+        window.location.replace('https://' + currentHost + pathname + search);
+        return;
+    }
+    
+    // Redirect www.taminul.com to taminul.com (HTTPS)
+    if (currentHost === 'www.taminul.com') {
+        window.location.replace('https://taminul.com' + pathname + search);
+        return;
+    }
+    
+    // GitHub Pages to custom domain redirect
+    if (currentHost.includes('github.io')) {
         // Don't redirect if it's the CarboNeXT project
         if (!pathname.startsWith('/carbonext_and_carboformer')) {
-            // Redirect to custom domain for all other paths
-            const newUrl = 'https://taminul.com' + pathname + window.location.search;
-            window.location.replace(newUrl);
+            window.location.replace('https://taminul.com' + pathname + search);
         }
     }
 })();
