@@ -65,8 +65,6 @@ website:
         href: "index.qmd"
       - text: "CV"
         href: "cv/index.qmd"
-      - text: "Resume"
-        href: "resume/Resume_Taminul.pdf"
       # - text: "Blog"
       #   href: "blog/index.qmd"
       - text: "Research"
