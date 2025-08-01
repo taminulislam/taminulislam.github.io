@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Taminul Islam">
+<meta name="description" content="CarboNeXT and CarboFormer dual semantic segmentation architectures for detecting and quantifying CO2 emissions using optical gas imaging">
+
+<title>CarboNeXT & CarboFormer | Taminul Islam</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em;
+  vertical-align: middle;
+}
+.project-header {
+  text-align: center;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+.project-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  
+}
+.project-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+.authors {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.affiliations {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+.links-section {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+.project-link {
+  background: transparent;
+  color: #495057;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.project-link:hover {
+  border-color: #750505;
+  color: #750505;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+.journal-badge {
+  background: #8b0808;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0 0.5rem;
+  cursor: default;
+}
+.section-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 2rem 0 1rem 0;
+  color: #011627;
+  border-bottom: 3px solid #011627;
+  padding-bottom: 0.5rem;
+}
+.architecture-image {
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+.result-item {
+  text-align: center;
+}
+.result-image {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+}
+.abstract-section {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 2rem 0;
+  border-left: 5px solid #750505;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .project-header {
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+  }
+  
+  .project-title {
+    font-size: 1.8rem !important;
+    line-height: 1.3;
+  }
+  
+  .authors {
+    font-size: 1rem;
+  }
+  
+  .affiliations {
+    font-size: 0.9rem;
+  }
+  
+  .section-title {
+    font-size: 1.4rem;
+    margin: 1.5rem 0 0.8rem 0;
+  }
+  
+  .abstract-section {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .links-section {
+    gap: 0.8rem;
+    margin: 1.5rem 0;
+    padding: 0 1rem;
+  }
+  
+  .project-link, .journal-badge {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    margin: 0.25rem;
+  }
+  
+  .results-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  /* Fix main content padding on mobile */
+  main.content {
+    padding: 0 1rem !important;
+  }
+  
+  /* Responsive images */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Adjust image sizes for mobile */
+  img[style*="max-width: 800px"] {
+    max-width: 95% !important;
+  }
+  
+  img[style*="max-width: 700px"] {
+    max-width: 95% !important;
+  }
+  
+  img[style*="max-width: 650px"] {
+    max-width: 95% !important;
+  }
+  
+  img[style*="max-width: 600px"] {
+    max-width: 95% !important;
+  }
+  
+  /* Better spacing for mobile */
+  div[style*="margin: 3rem 0"] {
+    margin: 2rem 0 !important;
+  }
+  
+  div[style*="margin: 2rem 0"] {
+    margin: 1.5rem 0 !important;
+  }
+  
+  /* Responsive text containers */
+  p[style*="max-width: 900px"],
+  p[style*="max-width: 1000px"],
+  p[style*="max-width: 800px"] {
+    max-width: 100% !important;
+    padding: 0 0.5rem;
+  }
+  
+  /* Code blocks responsive */
+  pre {
+    font-size: 0.8rem;
+    overflow-x: auto;
+  }
+  
+  /* Button styling for mobile */
+  a[style*="background: #750505"] {
+    display: block !important;
+    width: 100%;
+    max-width: 300px;
+    margin: 1rem auto !important;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-title {
+    font-size: 1.5rem !important;
+  }
+  
+  .section-title {
+    font-size: 1.2rem;
+  }
+  
+  main.content {
+    padding: 0 0.75rem !important;
+  }
+  
+  .abstract-section {
+    padding: 1rem;
+  }
+  
+  .project-link, .journal-badge {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  h3[style*="color: #2E8B57"] {
+    font-size: 1.1rem !important;
+  }
+  
+  h4[style*="color: #2E8B57"] {
+    font-size: 1rem !important;
+  }
+}
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../files/favicon-512.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet">
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3THLGK2G1N"></script>
+<script type="text/javascript">
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
+</script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+<header id="quarto-header" class="headroom fixed-top">
+  <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <!-- <div class="navbar-container container-fluid"> -->
+    <div class="navbar-brand-container mx-auto">
+      <a class="navbar-brand" href="../../../index.html">
+      <span class="navbar-title"><strong>Taminul</strong> Islam</span>
+      </a>
+    </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+<span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
+  <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
+</li>  
+<li class="nav-item">
+  <a class="nav-link" href="../../research/index.html"> 
+<span class="menu-text">Publications</span></a>
+</li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects/projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../files/Resume_Taminul.pdf" target="_blank"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../service/index.html"> 
+<span class="menu-text">Service</span></a>
+  </li>  
+</ul>
+          </div>
+      </div>
+    </nav>
+</header>
+
+<div class="project-header">
+  <div class="container">
+    <h2 class="project-title">CarboNeXT and CarboFormer: Dual Semantic Segmentation Architectures for Detecting and Quantifying Carbon Dioxide Emissions Using Optical Gas Imaging</h2>
+    
+    <div class="authors">
+      <strong>Taminul Islam</strong>, Toqi Tahamid Sarker, Mohamed G. Embaby, 
+      Khaled R. Ahmed, Amer AbuGhazaleh
+    </div>
+    
+    <div class="affiliations">
+      Southern Illinois University, Carbondale, IL, USA
+    </div>
+  </div>
+
+
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+
+<main class="content column-page-left container-fluid" id="quarto-document-content" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; text-align: left;">
+  <div class="links-section" style="text-align: center;">
+    <span class="journal-badge">arXiv Preprint</span>
+    <a href="https://arxiv.org/pdf/2506.05360" class="project-link" target="_blank">
+      <i class="fas fa-file-pdf"></i> Paper
+    </a>
+    <a href="https://github.com/taminulislam/carbonext-carboformer" class="project-link" target="_blank">
+      <i class="fab fa-github"></i> Code
+    </a>
+    <a href="" class="project-link">
+      <i class="fas fa-database"></i> Datasets
+    </a>
+  </div>
+
+  <div class="abstract-section">
+    <h2 class="section-title">Highlights</h2>
+    <p>
+      Carbon dioxide (CO₂) emissions are critical indicators of both environmental impact and various industrial processes, 
+      including livestock management. We introduce <strong>CarboNeXT</strong>, a semantic segmentation framework for Optical Gas 
+      Imaging (OGI), designed to detect and quantify CO₂ emissions across diverse applications, and <strong>CarboFormer</strong>, 
+      a lightweight variant optimized for resource-constrained platforms such as programmable drones.
+    </p>
+    <p>
+      <strong>Key Achievements:</strong>
+    </p>
+    <ul>
+      <li><strong>🎯 Outstanding Performance:</strong> CarboNeXT achieved <strong>88.46% mIoU on CCR</strong> and <strong>92.95% mIoU on RTA</strong> datasets</li>
+      <li><strong>⚡ Real-time Processing:</strong> CarboNeXT operates at <strong>60.95 FPS</strong>, enabling real-time monitoring applications</li>
+      <li><strong>🚁 Lightweight Variant:</strong> CarboFormer with only <strong>5.07M parameters</strong> achieves <strong>84.68 FPS</strong> for drone deployment</li>
+      <li><strong>📊 Comprehensive Datasets:</strong> Two novel datasets - CCR (controlled emissions) and RTA (livestock rumen fluid experiments)</li>
+      <li><strong>🔬 Multi-scale Detection:</strong> Effective performance across varied flow rates from 10-100 SCCM</li>
+      <li><strong>🌱 Agricultural Focus:</strong> Specific application to livestock emissions and precision agriculture</li>
+    </ul>
+  </div>
+
+  <h2 class="section-title">🏗️ Dual Architecture Overview</h2>
+  
+  <div class="row" style="margin: 3rem 0;">
+    <div class="col-lg-6 col-md-12 mb-4" style="text-align: center;">
+      <h3 style="color: #3252b3; margin-bottom: 1rem;">🎯 CarboNeXT Architecture</h3>
+      <img src="carbonext_architecture.png" alt="CarboNeXT Architecture" class="img-fluid" style="border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+      <p style="margin-top: 1rem; font-size: 1rem; color: #495057; text-align: left;">
+        <strong>CarboNeXT Framework:</strong> Multi-scale transformer-based encoder-decoder structure with UPerHead and auxiliary FCN components. 
+        The architecture effectively models both local details and global relationships in gas plume imagery through sophisticated 
+        attention mechanisms and hierarchical feature extraction, achieving state-of-the-art performance in CO₂ plume segmentation.
+      </p>
+    </div>
+    
+    <div class="col-lg-6 col-md-12 mb-4" style="text-align: center;">
+      <h3 style="color: #3252b3; margin-bottom: 1rem;">🚁 CarboFormer Architecture</h3>
+      <img src="carboformer_architecture.png" alt="CarboFormer Architecture" class="img-fluid" style="border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+      <p style="margin-top: 1rem; font-size: 1rem; color: #495057; text-align: left;">
+        <strong>CarboFormer Lightweight Design:</strong> Optimized architecture with efficient attention mechanisms and model compression 
+        for resource-constrained platforms. With only 5.07M parameters, CarboFormer maintains competitive accuracy while enabling 
+        deployment on programmable drones and edge devices for real-time CO₂ emission monitoring in the field.
+      </p>
+    </div>
+  </div>
+
+  <h2 class="section-title">🎯 Motivation & Environmental Impact</h2>
+  <p>
+    Climate change mitigation and greenhouse gas management remain some of the most pressing challenges facing global environmental 
+    sustainability. Carbon dioxide (CO₂) significantly contributes to global warming, with NASA reporting that CO₂ accounts for 
+    approximately 80% of greenhouse gas emissions from human activities. Since the pre-industrial era, atmospheric CO₂ concentrations 
+    have increased by about 50%.
+  </p>
+  <h4 style="color: #3252b3; margin-top: 1.5rem;">🔍 Key Challenges Addressed:</h4>
+  <ul>
+    <li><strong>🏭 Traditional Method Limitations:</strong> Expensive, cumbersome FTIR spectrometers with limited field applicability</li>
+    <li><strong>🐄 Livestock Emissions:</strong> Detecting and quantifying low-flow CO₂ emissions from dairy cow rumen fluid</li>
+    <li><strong>⚡ Real-time Monitoring:</strong> Need for continuous, automated CO₂ detection in various environments</li>
+    <li><strong>🎯 Precision Agriculture:</strong> Supporting livestock management and environmental monitoring decisions</li>
+    <li><strong>🚁 Platform Constraints:</strong> Enabling deployment on resource-limited devices like drones</li>
+  </ul>
+  <p>
+    <strong>Innovation:</strong> Our dual-architecture approach combines high-precision CarboNeXT for detailed analysis with 
+    lightweight CarboFormer for field deployment, addressing both accuracy and computational efficiency requirements.
+  </p>
+
+  <h2 class="section-title" id="datasets">📊 Datasets & Experimental Setup</h2>
+  
+  <div style="text-align: center; margin: 3rem 0;">
+    <h3 style="color: #3252b3; margin-bottom: 1rem;">🔬 Controlled Carbon Dioxide Release (CCR) Dataset</h3>
+    <img src="CCR_dataset_all_classes.png" alt="CCR Dataset Overview" class="img-fluid" style="max-width: 800px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <strong>CCR Dataset:</strong> Systematic CO₂ emissions captured using FLIR G343 OGI camera under controlled conditions with 
+      systematically varied flow rates (10-100 SCCM). The dataset provides comprehensive coverage of different emission intensities, 
+      enabling robust model training and evaluation across various gas leak scenarios representative of industrial applications.
+    </p>
+  </div>
+
+  <div style="text-align: center; margin: 3rem 0;">
+    <h3 style="color: #3252b3; margin-bottom: 1rem;">🐄 Real Time ANKOM (RTA) Dataset</h3>
+    <img src="dataset_visualization.png" alt="RTA Dataset Visualization" class="img-fluid" style="max-width: 700px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <strong>RTA Dataset:</strong> Real-time CO₂ emissions from dairy cow rumen fluid in vitro experiments using ANKOM gas production 
+      module. This unique dataset captures the complex dynamics of biological CO₂ generation, providing valuable insights for 
+      precision livestock management and environmental monitoring applications in agricultural settings.
+    </p>
+  </div>
+
+  <h2 class="section-title">📊 Experimental Results & Analysis</h2>
+  
+  <!-- CCR Dataset Results -->
+  <div style="text-align: center; margin: 3rem 0;">
+    <h3 style="color: #3252b3; margin-bottom: 1rem;">🏆 CCR Dataset Performance</h3>
+    <img src="main_result_CCR.png" alt="CCR Results" class="img-fluid" style="max-width: 700px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <strong>CCR Dataset Results:</strong> CarboNeXT achieves outstanding <strong>88.46% mIoU</strong> on the controlled emission dataset, 
+      significantly outperforming state-of-the-art methods including DeepLabV3+, PSPNet, and U-Net variants. The results demonstrate 
+      superior performance across varied flow rates, with particular effectiveness in challenging low-flow scenarios critical for 
+      environmental monitoring applications.
+    </p>
+  </div>
+
+  <!-- RTA Dataset Results -->
+  <div style="text-align: center; margin: 3rem 0;">
+    <h3 style="color: #3252b3; margin-bottom: 1rem;">🐄 RTA Dataset Performance</h3>
+    <img src="main_result_RTA.png" alt="RTA Results" class="img-fluid" style="max-width: 700px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <strong>RTA Dataset Results:</strong> CarboNeXT demonstrates exceptional performance with <strong>92.95% mIoU</strong> on livestock 
+      emission data, while CarboFormer achieves competitive <strong>92.98% mIoU</strong> with significantly fewer parameters. 
+      Both models excel in detecting biological CO₂ emissions, validating their effectiveness for precision agriculture applications.
+    </p>
+  </div>
+
+  <!-- Architecture Comparison -->
+  <div style="text-align: center; margin: 3rem 0;">
+    <h3 style="color: #3252b3; margin-bottom: 1rem;">⚖️ Performance vs Efficiency Trade-off</h3>
+    <img src="figure4.png" alt="Performance Comparison" class="img-fluid" style="max-width: 650px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <strong>Comparative Analysis:</strong> Comprehensive evaluation showing CarboNeXT's superior accuracy versus CarboFormer's 
+      computational efficiency. CarboNeXT prioritizes detection precision for high-stakes applications, while CarboFormer balances 
+      performance with resource constraints, enabling deployment on drones and edge devices for field monitoring.
+    </p>
+  </div>
+
+  <!-- Flow Rate Analysis -->
+  <div style="text-align: center; margin: 3rem 0;">
+    <h3 style="color: #3252b3; margin-bottom: 1rem;">📈 Multi-Scale Flow Rate Analysis</h3>
+    <img src="figure5.png" alt="Flow Rate Analysis" class="img-fluid" style="max-width: 700px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <strong>Multi-Scale Detection Capability:</strong> Both architectures demonstrate robust performance across varied flow rates 
+      from 10-100 SCCM, with particularly strong performance in low-flow scenarios critical for environmental and livestock monitoring. 
+      The analysis validates the models' ability to detect subtle CO₂ emissions that traditional methods might miss.
+    </p>
+  </div>
+
+  <h2 class="section-title">🚀 Key Contributions & Impact</h2>
+  <div class="row">
+    <div class="col-lg-6 col-md-12 mb-4">
+      <h4 style="color: #3252b3;">🔬 Technical Innovations:</h4>
+      <ul>
+        <li><strong>🏗️ Dual Architecture Design:</strong> CarboNeXT for high-precision analysis and CarboFormer for resource-constrained deployment</li>
+        <li><strong>🎯 OGI Specialization:</strong> First semantic segmentation framework specifically designed for optical gas imaging CO₂ detection</li>
+        <li><strong>📊 Novel Datasets:</strong> CCR (controlled emissions) and RTA (livestock rumen fluid) datasets for comprehensive evaluation</li>
+        <li><strong>⚡ Real-time Performance:</strong> 60.95 FPS (CarboNeXT) and 84.68 FPS (CarboFormer) for practical applications</li>
+      </ul>
+    </div>
+    <div class="col-lg-6 col-md-12 mb-4">
+      <h4 style="color: #3252b3;">🌍 Practical Applications:</h4>
+      <ul>
+        <li><strong>🐄 Livestock Management:</strong> Precision monitoring of rumen fluid CO₂ emissions for animal health assessment</li>
+        <li><strong>🏭 Industrial Monitoring:</strong> Real-time detection of gas leaks across varied flow rates and conditions</li>
+        <li><strong>🚁 Drone Deployment:</strong> CarboFormer enables aerial monitoring with lightweight, efficient processing</li>
+        <li><strong>🌱 Environmental Sensing:</strong> Continuous CO₂ monitoring for climate change research and emission tracking</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 2rem; border-radius: 15px; margin: 2rem 0; border-left: 5px solid #2E8B57;">
+    <h4 style="color: #011627; margin-bottom: 1rem;">🎯 Research Significance</h4>
+    <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 0;">
+      This research advances both environmental sensing and precision livestock management by providing robust tools for CO₂ emission 
+      analysis. The dual-architecture approach demonstrates that high-performance models can be adapted for resource-constrained 
+      platforms without significant performance degradation, enabling widespread deployment of CO₂ monitoring systems across 
+      agricultural and industrial applications.
+    </p>
+  </div>
+
+  <h2 class="section-title">📝 Citation</h2>
+  <div class="abstract-section">
+    <p style="margin-bottom: 1rem; font-size: 1.05rem; color: #495057;">
+      If you find CarboNeXT or CarboFormer useful in your research, please consider citing our paper:
+    </p>
+    <pre><code>@article{islam2025carbonext,
+  title    = {CarboNeXT and CarboFormer: Dual Semantic Segmentation Architectures for Detecting and Quantifying Carbon Dioxide Emissions Using Optical Gas Imaging},
+  author   = {Islam, Taminul and Sarker, Toqi Tahamid and Embaby, Mohamed G and Ahmed, Khaled R and AbuGhazaleh, Amer},
+  journal  = {arXiv preprint arXiv:2506.05360},
+  year     = {2025}
+}</code></pre>
+    <div style="margin-top: 1rem; padding: 1rem; background: #f0f8f0; border-radius: 8px; border-left: 4px solid #3252b3;">
+      <p style="margin: 0; font-size: 0.95rem; color: #3252b3;">
+        <strong>📖 Paper:</strong> <a href="https://arxiv.org/pdf/2506.05360" target="_blank" style="color: #3252b3; text-decoration: none; font-weight: 600;">arXiv:2506.05360 (2025)</a><br>
+        <strong>🔗 arXiv ID:</strong> <span style="font-family: monospace;">2506.05360</span>
+      </p>
+    </div>
+  </div>
+
+</main>
+
+</div>
+
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p><span class="faux-block"><i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> 2025 Taminul Islam</span></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+</body></html> 

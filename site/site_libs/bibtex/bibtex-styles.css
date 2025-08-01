@@ -1,0 +1,156 @@
+.bibtex-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    margin: 8px 0;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.bibtex-content.active {
+    max-height: 500px;
+}
+
+.bibtex-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: #e9ecef;
+    border-radius: 6px 6px 0 0;
+}
+
+.sourceCode {
+    margin: 0;
+    padding: 0;
+}
+
+.sourceCode pre {
+    margin: 0;
+    padding: 12px;
+}
+
+.sourceCode code {
+    display: block;
+    line-height: 1.5;
+}
+
+#bibtex-citation {
+    margin: 0;
+    padding: 0;
+}
+
+#bibtex-citation h2 {
+    display: none;
+}
+
+.sourceCode span {
+    white-space: pre;
+}
+
+.code-copy-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 8px;
+    padding: 4px 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+.research-highlights {
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.sidebar-title {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 10px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #4285f4;
+}
+
+.stat-label {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.research-areas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.area-tag {
+    background: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    color: #4285f4;
+    border: 1px solid #4285f4;
+}
+
+.research-spotlights {
+    margin-top: 15px;
+}
+
+.spotlight-item {
+    display: flex;
+    background: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.spotlight-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.spotlight-info {
+    padding: 8px 12px;
+    flex-grow: 1;
+}
+
+.spotlight-info h6 {
+    margin: 0 0 2px 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.spotlight-info p {
+    margin: 0;
+    font-size: 0.75rem;
+}
+
+.spotlight-info .btn {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+}
+
