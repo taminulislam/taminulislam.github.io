@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Taminul Islam">
+  <meta name="description" content="MESA: Medical Evaluation across Safety and Accuracy - A comprehensive study of fine-tuned language models for medical applications">
+
+<title>MESA: Medical LLM Evaluation | Taminul Islam</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em;
+  vertical-align: middle;
+}
+.project-header {
+  text-align: center;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+.project-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  
+}
+.project-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+.authors {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.affiliations {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+.links-section {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+.project-link {
+  background: transparent;
+  color: #495057;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.project-link:hover {
+  border-color: #750505;
+  color: #750505;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+.journal-badge {
+  background: #8b0808;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0 0.5rem;
+  cursor: default;
+}
+.section-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 2rem 0 1rem 0;
+  color: #011627;
+  border-bottom: 3px solid #011627;
+  padding-bottom: 0.5rem;
+}
+.architecture-image {
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+.result-item {
+  text-align: center;
+}
+.result-image {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+}
+.abstract-section {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 2rem 0;
+  border-left: 5px solid #750505;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .project-header {
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+  }
+  
+  .project-title {
+    font-size: 1.8rem !important;
+    line-height: 1.3;
+  }
+  
+  .authors {
+    font-size: 1rem;
+  }
+  
+  .affiliations {
+    font-size: 0.9rem;
+  }
+  
+  .section-title {
+    font-size: 1.4rem;
+    margin: 1.5rem 0 0.8rem 0;
+  }
+  
+  .abstract-section {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .links-section {
+    gap: 0.8rem;
+    margin: 1.5rem 0;
+    padding: 0 1rem;
+  }
+  
+  .project-link, .journal-badge {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    margin: 0.25rem;
+  }
+  
+  .results-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  /* Fix main content padding on mobile */
+  main.content {
+    padding: 0 1rem !important;
+  }
+  
+  /* Responsive images */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Adjust image sizes for mobile */
+  img[style*="max-width: 800px"] {
+    max-width: 95% !important;
+  }
+  
+  img[style*="max-width: 700px"] {
+    max-width: 95% !important;
+  }
+  
+  img[style*="max-width: 650px"] {
+    max-width: 95% !important;
+  }
+  
+  img[style*="max-width: 600px"] {
+    max-width: 95% !important;
+  }
+  
+  /* Better spacing for mobile */
+  div[style*="margin: 3rem 0"] {
+    margin: 2rem 0 !important;
+  }
+  
+  div[style*="margin: 2rem 0"] {
+    margin: 1.5rem 0 !important;
+  }
+  
+  /* Responsive text containers */
+  p[style*="max-width: 900px"],
+  p[style*="max-width: 1000px"],
+  p[style*="max-width: 800px"] {
+    max-width: 100% !important;
+    padding: 0 0.5rem;
+  }
+  
+  /* Code blocks responsive */
+  pre {
+    font-size: 0.8rem;
+    overflow-x: auto;
+  }
+  
+  /* Button styling for mobile */
+  a[style*="background: #750505"] {
+    display: block !important;
+    width: 100%;
+    max-width: 300px;
+    margin: 1rem auto !important;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-title {
+    font-size: 1.5rem !important;
+  }
+  
+  .section-title {
+    font-size: 1.2rem;
+  }
+  
+  main.content {
+    padding: 0 0.75rem !important;
+  }
+  
+  .abstract-section {
+    padding: 1rem;
+  }
+  
+  .project-link, .journal-badge {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  h3[style*="color: #2E8B57"] {
+    font-size: 1.1rem !important;
+  }
+  
+  h4[style*="color: #2E8B57"] {
+    font-size: 1rem !important;
+  }
+}
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../files/favicon-512.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet">
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3THLGK2G1N"></script>
+<script type="text/javascript">
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
+</script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+<header id="quarto-header" class="headroom fixed-top">
+  <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <!-- <div class="navbar-container container-fluid"> -->
+    <div class="navbar-brand-container mx-auto">
+      <a class="navbar-brand" href="../../../index.html">
+      <span class="navbar-title"><strong>Taminul</strong> Islam</span>
+      </a>
+    </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+<span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
+  <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
+</li>  
+<li class="nav-item">
+  <a class="nav-link" href="../../research/index.html"> 
+<span class="menu-text">Publications</span></a>
+</li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects/projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../files/Resume_Taminul.pdf" target="_blank"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../service/index.html"> 
+<span class="menu-text">Service</span></a>
+  </li>  
+</ul>
+          </div>
+      </div>
+    </nav>
+</header>
+
+<div class="project-header">
+  <div class="container">
+    <h2 class="project-title">MESA: Medical Evaluation across Safety and Accuracy</h2>
+    <div class="project-subtitle">A Comprehensive Study of Fine-tuned Language Models for Medical Applications</div>
+    
+    <div class="authors">
+      <strong>Taminul Islam</strong>
+    </div>
+    
+    <div class="affiliations">
+      School of Computing, Southern Illinois University, Carbondale, IL, USA
+    </div>
+    
+    <div class="affiliations" style="margin-top: 1rem;">
+      🎓 Course Project<br>
+      Generative AI Course | Summer 2025 | Southern Illinois University<br>
+      <strong>Achieved: A (>95%)</strong>
+    </div>
+  </div>
+
+
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+
+<main class="content column-page-left container-fluid" id="quarto-document-content" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; text-align: left;">
+  <div class="links-section" style="text-align: center;">
+    <a href="https://github.com/taminulislam/GenAI_MESA" class="project-link" target="_blank">
+      <i class="fab fa-github"></i> Code
+    </a>
+  </div>
+
+  <div class="abstract-section">
+    <h2 class="section-title">Abstract</h2>
+    <p>
+      Medical AI deployment requires careful evaluation across safety and accuracy dimensions—the focus of our MESA study. 
+      We present a comprehensive comparative evaluation of three fine-tuned language models: <strong>BioGPT-Large</strong>, 
+      <strong>BioMedLM</strong>, and <strong>DialoGPT-Small</strong> across 16 metrics spanning accuracy, safety, and efficiency dimensions. 
+      Using LoRA for parameter-efficient fine-tuning on 20,000 medical samples, we systematically assess multi-dimensional 
+      trade-offs to guide optimal model selection for different healthcare scenarios.
+    </p>
+    <p>
+      <strong>Key Findings:</strong>
+    </p>
+    <ul>
+      <li><strong>🏥 Clinical Excellence:</strong> BioGPT-Large achieves <strong>67.2% exact match accuracy</strong> and <strong>78.1% medical entity recognition</strong>, optimal for clinical decision support</li>
+      <li><strong>🛡️ Superior Safety:</strong> DialoGPT-Small demonstrates <strong>100% safety rate</strong> with perfect harm detection, ideal for patient-facing applications</li>
+      <li><strong>⚡ Resource Efficiency:</strong> DialoGPT-Small requires only <strong>0.22 GB GPU memory</strong> (98% reduction) while maintaining competitive performance</li>
+      <li><strong>🎯 Balanced Performance:</strong> BioMedLM provides optimal balance for educational applications with competitive accuracy</li>
+      <li><strong>🔧 Parameter Efficiency:</strong> LoRA adaptation achieves <strong>5.44-9.59% parameter efficiency</strong> across all architectures</li>
+      <li><strong>📊 Comprehensive Evaluation:</strong> 16-metric framework including factual consistency and hallucination detection</li>
+    </ul>
+  </div>
+
+  <h2 class="section-title">🤖 Model Architectures</h2>
+  
+  <div style="text-align: center; margin: 3rem 0;">
+    <img src="img1.png" alt="MESA Model Comparison" class="img-fluid" style="max-width: 900px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <strong>MESA Model Response Comparison:</strong> Illustration showing how the three medical language models respond differently 
+      to the same clinical question about hypertension symptoms, demonstrating their distinct communication styles and target use cases.
+    </p>
+  </div>
+  
+  <div class="row" style="margin: 3rem 0;">
+    <div class="col-lg-4 col-md-12 mb-4" style="text-align: center;">
+      <h3 style="color: #2E8B57; margin-bottom: 1rem;">🏥 BioGPT-Large</h3>
+      <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #2E8B57;">
+        <p style="margin-bottom: 1rem; text-align: left;"><strong>347M Parameters</strong></p>
+        <ul style="text-align: left; margin-bottom: 0;">
+          <li>Domain-specialized biomedical transformer</li>
+          <li>67.2% exact match accuracy</li>
+          <li>78.1% medical entity recognition</li>
+          <li>94.3% safety rate</li>
+          <li>Best for clinical decision support</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 col-md-12 mb-4" style="text-align: center;">
+      <h3 style="color: #2E8B57; margin-bottom: 1rem;">🧠 BioMedLM</h3>
+      <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #2E8B57;">
+        <p style="margin-bottom: 1rem; text-align: left;"><strong>2.7B Parameters</strong></p>
+        <ul style="text-align: left; margin-bottom: 0;">
+          <li>Large-scale biomedical transformer</li>
+          <li>49.2% exact match accuracy</li>
+          <li>Lowest training loss (2.231)</li>
+          <li>87.3% safety rate</li>
+          <li>Best for medical education</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 col-md-12 mb-4" style="text-align: center;">
+      <h3 style="color: #2E8B57; margin-bottom: 1rem;">💬 DialoGPT-Small</h3>
+      <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #2E8B57;">
+        <p style="margin-bottom: 1rem; text-align: left;"><strong>117M Parameters</strong></p>
+        <ul style="text-align: left; margin-bottom: 0;">
+          <li>Conversational transformer adapted</li>
+          <li>50.2% exact match accuracy</li>
+          <li>100% safety rate (perfect)</li>
+          <li>Only 0.22 GB GPU memory</li>
+          <li>Best for patient interaction</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">🎯 Motivation & Medical AI Challenges</h2>
+  <p>
+    Medical AI deployment requires careful evaluation across multiple dimensions beyond traditional accuracy metrics. As large language 
+    models increasingly enter healthcare applications, understanding their safety characteristics, computational requirements, and 
+    deployment trade-offs becomes critical for successful clinical integration. Current evaluation frameworks often focus solely on 
+    accuracy, neglecting crucial factors like factual consistency, hallucination detection, and resource efficiency.
+  </p>
+  <h4 style="color: #2E8B57; margin-top: 1.5rem;">🔍 Key Challenges Addressed:</h4>
+  <ul>
+    <li><strong>🏥 Safety-Critical Applications:</strong> Medical AI systems must prioritize patient safety alongside performance accuracy</li>
+    <li><strong>🎯 Multi-Dimensional Evaluation:</strong> Need for comprehensive assessment across 16 metrics spanning accuracy, safety, and efficiency</li>
+    <li><strong>⚡ Resource Constraints:</strong> Clinical environments often have limited computational resources requiring efficient models</li>
+    <li><strong>🤖 Model Selection:</strong> Different healthcare scenarios require different model characteristics and trade-offs</li>
+    <li><strong>🛡️ Hallucination Detection:</strong> Critical need to identify and prevent harmful or misleading medical information</li>
+  </ul>
+  <p>
+    <strong>Innovation:</strong> Our MESA framework provides a comprehensive evaluation methodology that enables informed model 
+    selection based on specific healthcare deployment scenarios, balancing accuracy, safety, and computational efficiency.
+  </p>
+
+  <h2 class="section-title" id="datasets">📊 Medical Datasets & Training Framework</h2>
+  
+  <div style="text-align: center; margin: 3rem 0;">
+    <h3 style="color: #2E8B57; margin-bottom: 1rem;">📋 Multi-Dataset Medical Corpus</h3>
+    <img src="tab1.png" alt="Medical Dataset Overview" class="img-fluid" style="max-width: 800px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <strong>Medical Dataset Compilation:</strong> Comprehensive training corpus of 20,000 medical samples from four specialized datasets. 
+      Equal distribution ensures balanced representation across general medical Q&A, clinical dialogue, medical education content, 
+      and medical terminology, enabling robust evaluation across diverse healthcare applications.
+    </p>
+  </div>
+  
+  <div class="row" style="margin: 3rem 0;">
+    <div class="col-lg-6 col-md-12 mb-4">
+      <h4 style="color: #2E8B57;">📚 Dataset Components:</h4>
+      <ul>
+        <li><strong>lavita/medical-qa-datasets (25%):</strong> 5,000 samples of structured clinical Q&A scenarios</li>
+        <li><strong>ruslanmv/ai-medical-chatbot (25%):</strong> 5,000 samples of conversational medical interactions</li>
+        <li><strong>medalpaca/medical_meadow_medical_flashcards (25%):</strong> 5,000 samples of clinical concept assessment</li>
+        <li><strong>gamino/wiki_medical_terms (25%):</strong> 5,000 samples of medical vocabulary and terminology</li>
+      </ul>
+    </div>
+    <div class="col-lg-6 col-md-12 mb-4">
+      <h4 style="color: #2E8B57;">⚙️ Training Configuration:</h4>
+      <ul>
+        <li><strong>Parameter-Efficient Fine-tuning:</strong> LoRA adaptation with ranks 32-64</li>
+        <li><strong>Memory Optimization:</strong> 4-bit quantization with NF4 quantization type</li>
+        <li><strong>Training Duration:</strong> 2 epochs (5,000 steps) for all models</li>
+        <li><strong>Standardized Setup:</strong> Identical configurations for fair comparison</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-title">📊 Comprehensive Evaluation Results</h2>
+  
+  <!-- Comprehensive Results Table -->
+  <div style="text-align: center; margin: 3rem 0;">
+    <h3 style="color: #2E8B57; margin-bottom: 1rem;">🏆 16-Metric Performance Analysis</h3>
+    <img src="tab2.png" alt="Comprehensive Results" class="img-fluid" style="max-width: 500px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <strong>Comprehensive Performance Evaluation:</strong> Results across 16 metrics spanning accuracy, medical quality, safety, 
+      and computational efficiency. BioGPT-Large leads in accuracy metrics, DialoGPT-Small excels in safety characteristics, 
+      while BioMedLM achieves the lowest training loss, demonstrating distinct architectural advantages for different deployment scenarios.
+    </p>
+  </div>
+
+  <!-- Training Performance -->
+  <div style="text-align: center; margin: 3rem 0;">
+    <h3 style="color: #2E8B57; margin-bottom: 1rem;">📈 Training Convergence Analysis</h3>
+    <img src="tab3.png" alt="Training Results" class="img-fluid" style="max-width: 700px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <strong>Training Performance:</strong> BioMedLM achieved the lowest training loss (2.231) due to its large parameter count and 
+      extensive biomedical pretraining. BioGPT-Large demonstrated stable convergence (2.847), while DialoGPT-Small showed successful 
+      adaptation (3.467) despite being originally designed for general conversation.
+    </p>
+  </div>
+
+  <!-- Multi-Dimensional Trade-offs -->
+  <div style="background: #f8f9fa; padding: 2rem; border-radius: 15px; margin: 3rem 0;">
+    <h3 style="color: #2E8B57; margin-bottom: 1.5rem; text-align: center;">⚖️ Multi-Dimensional Trade-off Analysis</h3>
+    <div class="row">
+      <div class="col-lg-4 col-md-12 mb-3">
+        <h4 style="color: #011627;">🎯 Accuracy Excellence</h4>
+        <p><strong>BioGPT-Large:</strong> 67.2% exact match accuracy, 78.1% medical entity recognition, 73.4% semantic similarity</p>
+      </div>
+      <div class="col-lg-4 col-md-12 mb-3">
+        <h4 style="color: #011627;">🛡️ Safety Leadership</h4>
+        <p><strong>DialoGPT-Small:</strong> 100% safety rate, perfect harm detection (0.000), 99.8% factual consistency</p>
+      </div>
+      <div class="col-lg-4 col-md-12 mb-3">
+        <h4 style="color: #011627;">⚡ Resource Efficiency</h4>
+        <p><strong>DialoGPT-Small:</strong> Only 0.22 GB GPU memory (98% reduction), 3.4 hours training time, 5.44% trainable parameters</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Evaluation Framework -->
+  <div style="margin: 3rem 0;">
+    <h3 style="color: #2E8B57; margin-bottom: 1rem;">📋 16-Metric Evaluation Framework</h3>
+    <div class="row">
+      <div class="col-lg-3 col-md-6 mb-3">
+        <h5 style="color: #011627;">📊 Accuracy Metrics</h5>
+        <ul style="font-size: 0.9rem;">
+          <li>Exact Match Accuracy</li>
+          <li>Semantic Similarity</li>
+          <li>Content-Based Accuracy</li>
+          <li>Keyword Overlap</li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-3">
+        <h5 style="color: #011627;">🏥 Medical Quality</h5>
+        <ul style="font-size: 0.9rem;">
+          <li>Medical Entity Recognition</li>
+          <li>Clinical Relevance</li>
+          <li>Knowledge Depth</li>
+          <li>Explanation Quality</li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-3">
+        <h5 style="color: #011627;">🛡️ Safety & Consistency</h5>
+        <ul style="font-size: 0.9rem;">
+          <li>Factual Consistency</li>
+          <li>Safety Percentage</li>
+          <li>Hallucination Risk</li>
+          <li>Harm Detection</li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-3">
+        <h5 style="color: #011627;">⚡ Efficiency</h5>
+        <ul style="font-size: 0.9rem;">
+          <li>Training Loss</li>
+          <li>GPU Memory Usage</li>
+          <li>Training Time</li>
+          <li>Parameter Efficiency</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">🚀 Key Contributions & Impact</h2>
+  <div class="row">
+    <div class="col-lg-6 col-md-12 mb-4">
+      <h4 style="color: #2E8B57;">🔬 Technical Innovations:</h4>
+      <ul>
+        <li><strong>📊 16-Metric Evaluation Framework:</strong> Comprehensive assessment across accuracy, safety, and efficiency dimensions</li>
+        <li><strong>🛡️ Safety-First Methodology:</strong> First study to prioritize factual consistency and hallucination detection in medical LLMs</li>
+        <li><strong>⚙️ Parameter-Efficient Fine-tuning:</strong> LoRA adaptation achieving 5.44-9.59% parameter efficiency across architectures</li>
+        <li><strong>🎯 Multi-Dimensional Trade-off Analysis:</strong> Systematic comparison revealing distinct architectural advantages for different scenarios</li>
+      </ul>
+    </div>
+    <div class="col-lg-6 col-md-12 mb-4">
+      <h4 style="color: #2E8B57;">🏥 Practical Healthcare Applications:</h4>
+      <ul>
+        <li><strong>👩‍⚕️ Clinical Decision Support:</strong> BioGPT-Large optimal for healthcare professionals requiring high accuracy</li>
+        <li><strong>💬 Patient Interaction Systems:</strong> DialoGPT-Small ideal for patient-facing applications with superior safety</li>
+        <li><strong>📚 Medical Education:</strong> BioMedLM balanced performance for educational content and training scenarios</li>
+        <li><strong>🔧 Resource-Constrained Deployment:</strong> Efficient models enabling clinical AI in limited-resource environments</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 2rem; border-radius: 15px; margin: 2rem 0; border-left: 5px solid #2E8B57;">
+    <h4 style="color: #011627; margin-bottom: 1rem;">🎯 Research Significance</h4>
+    <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 0;">
+      This research establishes that optimal medical AI deployment requires systematic evaluation across multiple dimensions rather 
+      than accuracy optimization alone. The MESA framework demonstrates that domain-specific pretraining is critical for medical 
+      knowledge representation, while revealing distinct architectural advantages: BioGPT-Large for clinical precision, DialoGPT-Small 
+      for patient safety, and BioMedLM for balanced educational applications. The comprehensive evaluation incorporating factual 
+      consistency and hallucination detection provides essential safeguards for clinical deployment.
+    </p>
+  </div>
+
+  <!-- <h2 class="section-title">📝 Citation</h2>
+  <div class="abstract-section">
+    <p style="margin-bottom: 1rem; font-size: 1.05rem; color: #495057;">
+      If you find the MESA evaluation framework useful in your research, please consider citing our paper:
+    </p>
+    <pre><code>@article{islam2025mesa,
+  title    = {MESA: Medical Evaluation across Safety and Accuracy - A Comprehensive Study of Fine-tuned Language Models},
+  author   = {Islam, Taminul},
+  journal  = {IEEE Conference},
+  year     = {2025},
+  address  = {School of Computing, Southern Illinois University, Carbondale, USA}
+}</code></pre>
+    <div style="margin-top: 1rem; padding: 1rem; background: #f0f8f0; border-radius: 8px; border-left: 4px solid #2E8B57;">
+      <p style="margin: 0; font-size: 0.95rem; color: #2E8B57;">
+        <strong>📖 Paper:</strong> <a href="paper.tex" target="_blank" style="color: #2E8B57; text-decoration: none; font-weight: 600;">MESA: Medical Evaluation across Safety and Accuracy</a><br>
+        <strong>💻 Notebooks:</strong> <a href="notebook/" style="color: #2E8B57; text-decoration: none; font-weight: 600;">Medical LLM Training & Evaluation</a><br>
+        <strong>🏥 Keywords:</strong> <span style="font-family: monospace;">Medical AI deployment, safety-efficiency trade-offs, parameter-efficient fine-tuning, LoRA adaptation, clinical evaluation metrics</span>
+      </p>
+    </div>
+  </div> -->
+
+</main>
+
+</div>
+
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p><span class="faux-block"><i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> 2025 Taminul Islam</span></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+</body></html> 
