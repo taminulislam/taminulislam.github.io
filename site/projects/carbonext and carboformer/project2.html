@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Taminul Islam">
-<meta name="description" content="CarboNeXT and CarboFormer dual semantic segmentation architectures for detecting and quantifying CO2 emissions using optical gas imaging">
+<meta name="description" content="CarboFormer: A lightweight semantic segmentation architecture for efficient carbon dioxide detection using optical gas imaging">
 
-<title>CarboNeXT & CarboFormer | Taminul Islam</title>
+<title>CarboFormer | Taminul Islam</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -340,7 +340,7 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
 
 <div class="project-header">
   <div class="container">
-    <h2 class="project-title">CarboNeXT and CarboFormer: Dual Semantic Segmentation Architectures for Detecting and Quantifying Carbon Dioxide Emissions Using Optical Gas Imaging</h2>
+    <h2 class="project-title">CarboFormer: A Lightweight Semantic Segmentation Architecture for Efficient Carbon Dioxide Detection Using Optical Gas Imaging</h2>
     
     <div class="authors">
       <strong>Taminul Islam</strong>, Toqi Tahamid Sarker, Mohamed G. Embaby, 
@@ -364,54 +364,43 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
     <a href="https://github.com/taminulislam/carbonext-carboformer" class="project-link" target="_blank">
       <i class="fab fa-github"></i> Code
     </a>
-    <a href="" class="project-link">
+    <!-- <a href="" class="project-link">
       <i class="fas fa-database"></i> Datasets
-    </a>
+    </a> -->
   </div>
 
   <div class="abstract-section">
     <h2 class="section-title">Highlights</h2>
     <p>
       Carbon dioxide (CO₂) emissions are critical indicators of both environmental impact and various industrial processes, 
-      including livestock management. We introduce <strong>CarboNeXT</strong>, a semantic segmentation framework for Optical Gas 
-      Imaging (OGI), designed to detect and quantify CO₂ emissions across diverse applications, and <strong>CarboFormer</strong>, 
-      a lightweight variant optimized for resource-constrained platforms such as programmable drones.
+      including livestock management. We introduce <strong>CarboFormer</strong>, a lightweight semantic segmentation framework 
+      for Optical Gas Imaging (OGI), designed to detect and quantify CO₂ emissions across diverse applications while maintaining 
+      competitive accuracy with minimal computational overhead for resource-constrained environments.
     </p>
     <p>
       <strong>Key Achievements:</strong>
     </p>
     <ul>
-      <li><strong>🎯 Outstanding Performance:</strong> CarboNeXT achieved <strong>88.46% mIoU on CCR</strong> and <strong>92.95% mIoU on RTA</strong> datasets</li>
-      <li><strong>⚡ Real-time Processing:</strong> CarboNeXT operates at <strong>60.95 FPS</strong>, enabling real-time monitoring applications</li>
-      <li><strong>🚁 Lightweight Variant:</strong> CarboFormer with only <strong>5.07M parameters</strong> achieves <strong>84.68 FPS</strong> for drone deployment</li>
-      <li><strong>📊 Comprehensive Datasets:</strong> Two novel datasets - CCR (controlled emissions) and RTA (livestock rumen fluid experiments)</li>
+      <li><strong>🎯 Competitive Performance:</strong> CarboFormer achieves <strong>84.88% mIoU on CCR</strong> and <strong>92.98% mIoU on RTA</strong> datasets</li>
+      <li><strong>⚡ Real-time Processing:</strong> Operates at <strong>84.68 FPS</strong>, enabling real-time monitoring applications</li>
+      <li><strong>🚁 Lightweight Design:</strong> Only <strong>5.07M parameters</strong> and <strong>11.39G FLOPs</strong> for drone deployment</li>
+      <li><strong>📊 Novel Datasets:</strong> Two comprehensive datasets - CCR (controlled emissions) and RTA (livestock rumen fluid experiments)</li>
       <li><strong>🔬 Multi-scale Detection:</strong> Effective performance across varied flow rates from 10-100 SCCM</li>
-      <li><strong>🌱 Agricultural Focus:</strong> Specific application to livestock emissions and precision agriculture</li>
+      <li><strong>🏆 Superior to Lightweight Models:</strong> Outperforms SegFormer-B0 (83.36% mIoU) and SegNeXt (82.55% mIoU) on CCR</li>
     </ul>
   </div>
 
-  <h2 class="section-title">🏗️ Dual Architecture Overview</h2>
+  <h2 class="section-title">🏗️ Architecture Overview</h2>
   
-  <div class="row" style="margin: 3rem 0;">
-    <div class="col-lg-6 col-md-12 mb-4" style="text-align: center;">
-      <h3 style="color: #3252b3; margin-bottom: 1rem;">🎯 CarboNeXT Architecture</h3>
-      <img src="carbonext_architecture.png" alt="CarboNeXT Architecture" class="img-fluid" style="border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
-      <p style="margin-top: 1rem; font-size: 1rem; color: #495057; text-align: left;">
-        <strong>CarboNeXT Framework:</strong> Multi-scale transformer-based encoder-decoder structure with UPerHead and auxiliary FCN components. 
-        The architecture effectively models both local details and global relationships in gas plume imagery through sophisticated 
-        attention mechanisms and hierarchical feature extraction, achieving state-of-the-art performance in CO₂ plume segmentation.
-      </p>
-    </div>
-    
-    <div class="col-lg-6 col-md-12 mb-4" style="text-align: center;">
-      <h3 style="color: #3252b3; margin-bottom: 1rem;">🚁 CarboFormer Architecture</h3>
-      <img src="carboformer_architecture.png" alt="CarboFormer Architecture" class="img-fluid" style="border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
-      <p style="margin-top: 1rem; font-size: 1rem; color: #495057; text-align: left;">
-        <strong>CarboFormer Lightweight Design:</strong> Optimized architecture with efficient attention mechanisms and model compression 
-        for resource-constrained platforms. With only 5.07M parameters, CarboFormer maintains competitive accuracy while enabling 
-        deployment on programmable drones and edge devices for real-time CO₂ emission monitoring in the field.
-      </p>
-    </div>
+  <div style="text-align: center; margin: 3rem 0;">
+    <img src="carboformer_architecture.png" alt="CarboFormer Architecture" class="img-fluid" style="max-width: 900px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+    <p style="margin-top: 1.5rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto; text-align: left;">
+      <strong>CarboFormer Architecture:</strong> A lightweight semantic segmentation framework integrating an optimized encoder-decoder 
+      architecture with specialized multi-scale feature fusion and auxiliary supervision strategies. The model effectively captures both 
+      local details and global relationships in gas plume imagery while maintaining computational efficiency with only 5.07M parameters. 
+      The architecture employs efficient attention mechanisms and model compression techniques, making it particularly suitable for 
+      deployment on resource-constrained platforms such as programmable drones and edge devices for real-time CO₂ emission monitoring.
+    </p>
   </div>
 
   <h2 class="section-title">🎯 Motivation & Environmental Impact</h2>
@@ -428,10 +417,12 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
     <li><strong>⚡ Real-time Monitoring:</strong> Need for continuous, automated CO₂ detection in various environments</li>
     <li><strong>🎯 Precision Agriculture:</strong> Supporting livestock management and environmental monitoring decisions</li>
     <li><strong>🚁 Platform Constraints:</strong> Enabling deployment on resource-limited devices like drones</li>
+    <li><strong>⚙️ Computational Efficiency:</strong> Balancing accuracy with minimal computational overhead</li>
   </ul>
   <p>
-    <strong>Innovation:</strong> Our dual-architecture approach combines high-precision CarboNeXT for detailed analysis with 
-    lightweight CarboFormer for field deployment, addressing both accuracy and computational efficiency requirements.
+    <strong>Innovation:</strong> CarboFormer addresses these challenges through a lightweight architecture that maintains competitive 
+    accuracy while optimizing for resource-constrained platforms, enabling widespread deployment for CO₂ monitoring across agricultural 
+    and industrial applications.
   </p>
 
   <h2 class="section-title" id="datasets">📊 Datasets & Experimental Setup</h2>
@@ -440,9 +431,10 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
     <h3 style="color: #3252b3; margin-bottom: 1rem;">🔬 Controlled Carbon Dioxide Release (CCR) Dataset</h3>
     <img src="CCR_dataset_all_classes.png" alt="CCR Dataset Overview" class="img-fluid" style="max-width: 800px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
     <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
-      <strong>CCR Dataset:</strong> Systematic CO₂ emissions captured using FLIR G343 OGI camera under controlled conditions with 
-      systematically varied flow rates (10-100 SCCM). The dataset provides comprehensive coverage of different emission intensities, 
-      enabling robust model training and evaluation across various gas leak scenarios representative of industrial applications.
+      <strong>Figure: CCR Dataset Overview.</strong> The dataset features systematic CO₂ emissions captured via FLIR G343 OGI camera 
+      under controlled conditions with varied flow rates (10-100 SCCM). This comprehensive dataset provides extensive coverage of 
+      different emission intensities, enabling robust model training and evaluation across various gas leak scenarios representative 
+      of industrial applications.
     </p>
   </div>
 
@@ -450,9 +442,10 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
     <h3 style="color: #3252b3; margin-bottom: 1rem;">🐄 Real Time ANKOM (RTA) Dataset</h3>
     <img src="dataset_visualization.png" alt="RTA Dataset Visualization" class="img-fluid" style="max-width: 700px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
     <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
-      <strong>RTA Dataset:</strong> Real-time CO₂ emissions from dairy cow rumen fluid in vitro experiments using ANKOM gas production 
-      module. This unique dataset captures the complex dynamics of biological CO₂ generation, providing valuable insights for 
-      precision livestock management and environmental monitoring applications in agricultural settings.
+      <strong>Figure: RTA Dataset Visualization.</strong> Sample images and ground truth masks from the Real Time ANKOM dataset, 
+      containing real-time CO₂ emissions from dairy cow rumen fluid in vitro experiments using the ANKOM gas production module. 
+      This unique dataset captures the complex dynamics of biological CO₂ generation, providing valuable insights for precision 
+      livestock management and environmental monitoring applications in agricultural settings.
     </p>
   </div>
 
@@ -463,10 +456,10 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
     <h3 style="color: #3252b3; margin-bottom: 1rem;">🏆 CCR Dataset Performance</h3>
     <img src="main_result_CCR.png" alt="CCR Results" class="img-fluid" style="max-width: 700px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
     <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
-      <strong>CCR Dataset Results:</strong> CarboNeXT achieves outstanding <strong>88.46% mIoU</strong> on the controlled emission dataset, 
-      significantly outperforming state-of-the-art methods including DeepLabV3+, PSPNet, and U-Net variants. The results demonstrate 
-      superior performance across varied flow rates, with particular effectiveness in challenging low-flow scenarios critical for 
-      environmental monitoring applications.
+      <strong>Figure: Qualitative Results on CCR Dataset.</strong> Visual comparison of CarboFormer's segmentation performance against 
+      state-of-the-art methods including DeepLabv3+, Swin-T, FastSCNN, SegNext, DDRNet, and BiseNetV2. CarboFormer demonstrates superior 
+      plume boundary delineation and achieves competitive <strong>84.88% mIoU</strong> while maintaining computational efficiency with only 
+      5.07M parameters, making it particularly effective for challenging low-flow scenarios critical for environmental monitoring.
     </p>
   </div>
 
@@ -475,9 +468,10 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
     <h3 style="color: #3252b3; margin-bottom: 1rem;">🐄 RTA Dataset Performance</h3>
     <img src="main_result_RTA.png" alt="RTA Results" class="img-fluid" style="max-width: 700px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
     <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
-      <strong>RTA Dataset Results:</strong> CarboNeXT demonstrates exceptional performance with <strong>92.95% mIoU</strong> on livestock 
-      emission data, while CarboFormer achieves competitive <strong>92.98% mIoU</strong> with significantly fewer parameters. 
-      Both models excel in detecting biological CO₂ emissions, validating their effectiveness for precision agriculture applications.
+      <strong>Figure: Quantitative Comparison on RTA Dataset.</strong> CarboFormer achieves exceptional <strong>92.98% mIoU</strong> on 
+      livestock emission data, demonstrating superior performance across all metrics (mIoU, mAcc, mFscore, mPrecision, mRecall, aAcc). 
+      The model outperforms other lightweight architectures like SegFormer-B0 (90.44% mIoU) and Swin-T (89.07% mIoU) while maintaining 
+      efficiency, validating its effectiveness for precision agriculture applications and biological CO₂ emission detection.
     </p>
   </div>
 
@@ -486,9 +480,10 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
     <h3 style="color: #3252b3; margin-bottom: 1rem;">⚖️ Performance vs Efficiency Trade-off</h3>
     <img src="figure4.png" alt="Performance Comparison" class="img-fluid" style="max-width: 650px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
     <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
-      <strong>Comparative Analysis:</strong> Comprehensive evaluation showing CarboNeXT's superior accuracy versus CarboFormer's 
-      computational efficiency. CarboNeXT prioritizes detection precision for high-stakes applications, while CarboFormer balances 
-      performance with resource constraints, enabling deployment on drones and edge devices for field monitoring.
+      <strong>Figure: Qualitative Comparison on CCR Dataset.</strong> Visual comparison demonstrating CarboFormer's segmentation quality 
+      against state-of-the-art methods across different flow rate scenarios. The model achieves superior plume boundary detection and 
+      accurate segmentation while maintaining computational efficiency, making it particularly suitable for deployment on resource-constrained 
+      platforms such as programmable drones and edge devices for real-time field monitoring.
     </p>
   </div>
 
@@ -497,9 +492,10 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
     <h3 style="color: #3252b3; margin-bottom: 1rem;">📈 Multi-Scale Flow Rate Analysis</h3>
     <img src="figure5.png" alt="Flow Rate Analysis" class="img-fluid" style="max-width: 700px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
     <p style="margin-top: 1rem; font-size: 1.1rem; color: #495057; max-width: 1000px; margin-left: auto; margin-right: auto;">
-      <strong>Multi-Scale Detection Capability:</strong> Both architectures demonstrate robust performance across varied flow rates 
-      from 10-100 SCCM, with particularly strong performance in low-flow scenarios critical for environmental and livestock monitoring. 
-      The analysis validates the models' ability to detect subtle CO₂ emissions that traditional methods might miss.
+      <strong>Figure: Qualitative Results on RTA Dataset.</strong> Visual comparison of CarboFormer's performance on livestock emission 
+      data from dairy cow rumen fluid experiments. The model demonstrates robust detection across different temperatures (10°C, 70°C, 100°C) 
+      and effectively segments biological CO₂ plumes with high accuracy. CarboFormer shows particularly strong performance in detecting 
+      subtle emissions that traditional methods might miss, validating its effectiveness for precision livestock management applications.
     </p>
   </div>
 
@@ -508,19 +504,21 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
     <div class="col-lg-6 col-md-12 mb-4">
       <h4 style="color: #3252b3;">🔬 Technical Innovations:</h4>
       <ul>
-        <li><strong>🏗️ Dual Architecture Design:</strong> CarboNeXT for high-precision analysis and CarboFormer for resource-constrained deployment</li>
-        <li><strong>🎯 OGI Specialization:</strong> First semantic segmentation framework specifically designed for optical gas imaging CO₂ detection</li>
+        <li><strong>🏗️ Lightweight Architecture:</strong> CarboFormer achieves competitive accuracy with only 5.07M parameters and 11.39G FLOPs</li>
+        <li><strong>🎯 OGI Specialization:</strong> First lightweight semantic segmentation framework specifically designed for optical gas imaging CO₂ detection</li>
         <li><strong>📊 Novel Datasets:</strong> CCR (controlled emissions) and RTA (livestock rumen fluid) datasets for comprehensive evaluation</li>
-        <li><strong>⚡ Real-time Performance:</strong> 60.95 FPS (CarboNeXT) and 84.68 FPS (CarboFormer) for practical applications</li>
+        <li><strong>⚡ Real-time Performance:</strong> 84.68 FPS enabling deployment on resource-constrained platforms</li>
+        <li><strong>🔄 Multi-scale Feature Fusion:</strong> Specialized attention mechanisms for both local details and global relationships</li>
       </ul>
     </div>
     <div class="col-lg-6 col-md-12 mb-4">
       <h4 style="color: #3252b3;">🌍 Practical Applications:</h4>
       <ul>
         <li><strong>🐄 Livestock Management:</strong> Precision monitoring of rumen fluid CO₂ emissions for animal health assessment</li>
-        <li><strong>🏭 Industrial Monitoring:</strong> Real-time detection of gas leaks across varied flow rates and conditions</li>
-        <li><strong>🚁 Drone Deployment:</strong> CarboFormer enables aerial monitoring with lightweight, efficient processing</li>
+        <li><strong>🏭 Industrial Monitoring:</strong> Real-time detection of gas leaks across varied flow rates (10-100 SCCM)</li>
+        <li><strong>🚁 Drone Deployment:</strong> Lightweight design enables aerial monitoring with efficient processing on programmable drones</li>
         <li><strong>🌱 Environmental Sensing:</strong> Continuous CO₂ monitoring for climate change research and emission tracking</li>
+        <li><strong>📱 Edge Computing:</strong> Suitable for mobile platforms and IoT devices with limited computational resources</li>
       </ul>
     </div>
   </div>
@@ -528,20 +526,21 @@ gtag('config', 'G-3THLGK2G1N', { 'anonymize_ip': true});
   <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 2rem; border-radius: 15px; margin: 2rem 0; border-left: 5px solid #2E8B57;">
     <h4 style="color: #011627; margin-bottom: 1rem;">🎯 Research Significance</h4>
     <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 0;">
-      This research advances both environmental sensing and precision livestock management by providing robust tools for CO₂ emission 
-      analysis. The dual-architecture approach demonstrates that high-performance models can be adapted for resource-constrained 
-      platforms without significant performance degradation, enabling widespread deployment of CO₂ monitoring systems across 
-      agricultural and industrial applications.
+      This research advances both environmental sensing and precision livestock management by providing robust and efficient tools for 
+      CO₂ emission analysis. CarboFormer demonstrates that lightweight models can achieve competitive performance while maintaining 
+      minimal computational overhead, enabling widespread deployment of CO₂ monitoring systems on resource-constrained platforms such as 
+      programmable drones across agricultural, industrial, and environmental applications. The model shows particular effectiveness in 
+      challenging low-flow scenarios and significantly outperforms other lightweight methods.
     </p>
   </div>
 
   <h2 class="section-title">📝 Citation</h2>
   <div class="abstract-section">
     <p style="margin-bottom: 1rem; font-size: 1.05rem; color: #495057;">
-      If you find CarboNeXT or CarboFormer useful in your research, please consider citing our paper:
+      If you find CarboFormer useful in your research, please consider citing our paper:
     </p>
-    <pre><code>@article{islam2025carbonext,
-  title    = {CarboNeXT and CarboFormer: Dual Semantic Segmentation Architectures for Detecting and Quantifying Carbon Dioxide Emissions Using Optical Gas Imaging},
+    <pre><code>@article{islam2025carboformer,
+  title    = {CarboFormer: A Lightweight Semantic Segmentation Architecture for Efficient Carbon Dioxide Detection Using Optical Gas Imaging},
   author   = {Islam, Taminul and Sarker, Toqi Tahamid and Embaby, Mohamed G and Ahmed, Khaled R and AbuGhazaleh, Amer},
   journal  = {arXiv preprint arXiv:2506.05360},
   year     = {2025}
