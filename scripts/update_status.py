@@ -16,8 +16,10 @@ from pathlib import Path
 
 try:
     from zoneinfo import ZoneInfo  # py3.9+
+    from zoneinfo import ZoneInfoNotFoundError
 except Exception:  # pragma: no cover
     ZoneInfo = None  # type: ignore
+    ZoneInfoNotFoundError = Exception  # type: ignore
 
 
 STATUS_PATH = Path("site") / "status.json"
@@ -60,7 +62,11 @@ def now_local_iso(tz_name: str) -> str:
     if ZoneInfo is None:
         # Fallback: still provide something deterministic if zoneinfo isn't available.
         return now_utc_iso()
-    tz = ZoneInfo(tz_name)
+    try:
+        tz = ZoneInfo(tz_name)
+    except ZoneInfoNotFoundError:
+        # Common on Windows without the tzdata package installed.
+        return now_utc_iso()
     return datetime.now(tz).replace(microsecond=0).isoformat()
 
 
