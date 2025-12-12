@@ -23,7 +23,7 @@ except Exception:  # pragma: no cover
 
 
 STATUS_PATH = Path("site") / "status.json"
-LOCAL_TZ_NAME = "America/New_York"
+LOCAL_TZ_NAME = "America/Chicago"
 
 
 @dataclass(frozen=True)

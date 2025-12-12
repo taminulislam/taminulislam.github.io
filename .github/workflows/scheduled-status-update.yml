@@ -23,7 +23,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Gate on local hour (America/New_York)
+      - name: Gate on local hour (America/Chicago)
         shell: bash
         run: |
           set -euo pipefail
@@ -31,8 +31,8 @@ jobs:
             echo "Manual dispatch; skipping time gate."
             exit 0
           fi
-          HOUR="$(TZ=America/New_York date +%H)"
-          echo "Local hour (America/New_York) is: $HOUR"
+          HOUR="$(TZ=America/Chicago date +%H)"
+          echo "Local hour (America/Chicago) is: $HOUR"
           if [[ "$HOUR" != "01" && "$HOUR" != "18" ]]; then
             echo "Not a target hour; exiting."
             exit 0
