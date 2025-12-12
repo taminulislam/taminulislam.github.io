@@ -1,0 +1,65 @@
+name: Scheduled status update
+
+on:
+  schedule:
+    # GitHub cron is UTC. We run hourly and gate on America/New_York local hour
+    # to handle daylight saving time correctly.
+    - cron: "0 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scheduled-status-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Gate on local hour (America/New_York)
+        shell: bash
+        run: |
+          set -euo pipefail
+          HOUR="$(TZ=America/New_York date +%H)"
+          echo "Local hour (America/New_York) is: $HOUR"
+          if [[ "$HOUR" != "01" && "$HOUR" != "18" ]]; then
+            echo "Not a target hour; exiting."
+            exit 0
+          fi
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Update site/status.json
+        run: |
+          python scripts/update_status.py
+
+      - name: Commit and push (only if changed)
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          git add site/status.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git commit -m "chore: update site status"
+          git push
+
+

@@ -1,0 +1,18 @@
+{
+  "generatedBy": "scripts/update_status.py",
+  "localTimezone": "America/New_York",
+  "lastRunLocal": "1970-01-01T00:00:00-05:00",
+  "lastRunUtc": "1970-01-01T05:00:00+00:00",
+  "note": "Automated site metadata update (scheduled).",
+  "run": {
+    "actor": "",
+    "ref": "",
+    "repository": "",
+    "runAttempt": "",
+    "runId": "",
+    "sha": "",
+    "workflow": ""
+  }
+}
+
+
