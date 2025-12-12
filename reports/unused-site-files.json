@@ -1,0 +1,355 @@
+{
+  "entrypointsCount": 7,
+  "referencedFilesCount": 130,
+  "referencedMissingCount": 148,
+  "referencedMissing": [
+    "html/research-scripts.js",
+    "html/research-styles.css",
+    "site/projects/MESA/index.html",
+    "site/projects/MESA/projects/projects.html",
+    "site/projects/MESA/research/index.html",
+    "site/projects/MESA/service/index.html",
+    "site/projects/MESA/site_libs/bootstrap/bootstrap-icons.css",
+    "site/projects/MESA/site_libs/bootstrap/bootstrap.min.css",
+    "site/projects/MESA/site_libs/bootstrap/bootstrap.min.js",
+    "site/projects/MESA/site_libs/clipboard/clipboard.min.js",
+    "site/projects/MESA/site_libs/quarto-contrib/academicons-1.9.2/all.css",
+    "site/projects/MESA/site_libs/quarto-contrib/academicons-1.9.2/size.css",
+    "site/projects/MESA/site_libs/quarto-contrib/fontawesome6-0.1.0/all.css",
+    "site/projects/MESA/site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css",
+    "site/projects/MESA/site_libs/quarto-html/anchor.min.js",
+    "site/projects/MESA/site_libs/quarto-html/popper.min.js",
+    "site/projects/MESA/site_libs/quarto-html/quarto-syntax-highlighting.css",
+    "site/projects/MESA/site_libs/quarto-html/quarto.js",
+    "site/projects/MESA/site_libs/quarto-html/tippy.css",
+    "site/projects/MESA/site_libs/quarto-html/tippy.umd.min.js",
+    "site/projects/MESA/site_libs/quarto-nav/headroom.min.js",
+    "site/projects/MESA/site_libs/quarto-nav/quarto-nav.js",
+    "site/projects/MESA/site_libs/quarto-search/autocomplete.umd.js",
+    "site/projects/MESA/site_libs/quarto-search/fuse.min.js",
+    "site/projects/MESA/site_libs/quarto-search/quarto-search.js",
+    "site/projects/carbonext and carboformer/index.html",
+    "site/projects/carbonext and carboformer/projects/projects.html",
+    "site/projects/carbonext and carboformer/research/index.html",
+    "site/projects/carbonext and carboformer/service/index.html",
+    "site/projects/carbonext and carboformer/site_libs/bootstrap/bootstrap-icons.css",
+    "site/projects/carbonext and carboformer/site_libs/bootstrap/bootstrap.min.css",
+    "site/projects/carbonext and carboformer/site_libs/bootstrap/bootstrap.min.js",
+    "site/projects/carbonext and carboformer/site_libs/clipboard/clipboard.min.js",
+    "site/projects/carbonext and carboformer/site_libs/quarto-contrib/academicons-1.9.2/all.css",
+    "site/projects/carbonext and carboformer/site_libs/quarto-contrib/academicons-1.9.2/size.css",
+    "site/projects/carbonext and carboformer/site_libs/quarto-contrib/fontawesome6-0.1.0/all.css",
+    "site/projects/carbonext and carboformer/site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css",
+    "site/projects/carbonext and carboformer/site_libs/quarto-html/anchor.min.js",
+    "site/projects/carbonext and carboformer/site_libs/quarto-html/popper.min.js",
+    "site/projects/carbonext and carboformer/site_libs/quarto-html/quarto-syntax-highlighting.css",
+    "site/projects/carbonext and carboformer/site_libs/quarto-html/quarto.js",
+    "site/projects/carbonext and carboformer/site_libs/quarto-html/tippy.css",
+    "site/projects/carbonext and carboformer/site_libs/quarto-html/tippy.umd.min.js",
+    "site/projects/carbonext and carboformer/site_libs/quarto-nav/headroom.min.js",
+    "site/projects/carbonext and carboformer/site_libs/quarto-nav/quarto-nav.js",
+    "site/projects/carbonext and carboformer/site_libs/quarto-search/autocomplete.umd.js",
+    "site/projects/carbonext and carboformer/site_libs/quarto-search/fuse.min.js",
+    "site/projects/carbonext and carboformer/site_libs/quarto-search/quarto-search.js",
+    "site/projects/index.html",
+    "site/projects/research/index.html",
+    "site/projects/service/index.html",
+    "site/projects/site_libs/bootstrap/bootstrap-icons.css",
+    "site/projects/site_libs/bootstrap/bootstrap.min.css",
+    "site/projects/site_libs/bootstrap/bootstrap.min.js",
+    "site/projects/site_libs/clipboard/clipboard.min.js",
+    "site/projects/site_libs/quarto-contrib/academicons-1.9.2/all.css",
+    "site/projects/site_libs/quarto-contrib/academicons-1.9.2/size.css",
+    "site/projects/site_libs/quarto-contrib/fontawesome6-0.1.0/all.css",
+    "site/projects/site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css",
+    "site/projects/site_libs/quarto-html/anchor.min.js",
+    "site/projects/site_libs/quarto-html/popper.min.js",
+    "site/projects/site_libs/quarto-html/quarto-syntax-highlighting.css",
+    "site/projects/site_libs/quarto-html/quarto.js",
+    "site/projects/site_libs/quarto-html/tippy.css",
+    "site/projects/site_libs/quarto-html/tippy.umd.min.js",
+    "site/projects/site_libs/quarto-nav/headroom.min.js",
+    "site/projects/site_libs/quarto-nav/quarto-nav.js",
+    "site/projects/site_libs/quarto-search/autocomplete.umd.js",
+    "site/projects/site_libs/quarto-search/fuse.min.js",
+    "site/projects/site_libs/quarto-search/quarto-search.js",
+    "site/projects/weedswin/index.html",
+    "site/projects/weedswin/projects/projects.html",
+    "site/projects/weedswin/research/index.html",
+    "site/projects/weedswin/service/index.html",
+    "site/projects/weedswin/site_libs/bootstrap/bootstrap-icons.css",
+    "site/projects/weedswin/site_libs/bootstrap/bootstrap.min.css",
+    "site/projects/weedswin/site_libs/bootstrap/bootstrap.min.js",
+    "site/projects/weedswin/site_libs/clipboard/clipboard.min.js",
+    "site/projects/weedswin/site_libs/quarto-contrib/academicons-1.9.2/all.css",
+    "site/projects/weedswin/site_libs/quarto-contrib/academicons-1.9.2/size.css",
+    "site/projects/weedswin/site_libs/quarto-contrib/fontawesome6-0.1.0/all.css",
+    "site/projects/weedswin/site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css",
+    "site/projects/weedswin/site_libs/quarto-html/anchor.min.js",
+    "site/projects/weedswin/site_libs/quarto-html/popper.min.js",
+    "site/projects/weedswin/site_libs/quarto-html/quarto-syntax-highlighting.css",
+    "site/projects/weedswin/site_libs/quarto-html/quarto.js",
+    "site/projects/weedswin/site_libs/quarto-html/tippy.css",
+    "site/projects/weedswin/site_libs/quarto-html/tippy.umd.min.js",
+    "site/projects/weedswin/site_libs/quarto-nav/headroom.min.js",
+    "site/projects/weedswin/site_libs/quarto-nav/quarto-nav.js",
+    "site/projects/weedswin/site_libs/quarto-search/autocomplete.umd.js",
+    "site/projects/weedswin/site_libs/quarto-search/fuse.min.js",
+    "site/projects/weedswin/site_libs/quarto-search/quarto-search.js",
+    "site/research/projects/armformer/armformer.jpg",
+    "site/research/projects/carbonext and carboformer/project2.html",
+    "site/research/projects/projects.html",
+    "site/research/projects/weedswin/weedswin.html",
+    "site/research/research/index.html",
+    "site/research/service/index.html",
+    "site/research/site_libs/bibtex/bibtex-functions.js",
+    "site/research/site_libs/bibtex/bibtex-styles.css",
+    "site/research/site_libs/bibtex/bibtex-toggle.js",
+    "site/research/site_libs/bootstrap/bootstrap-icons.css",
+    "site/research/site_libs/bootstrap/bootstrap.min.css",
+    "site/research/site_libs/bootstrap/bootstrap.min.js",
+    "site/research/site_libs/clipboard/clipboard.min.js",
+    "site/research/site_libs/quarto-after-body/quarto-after-body.js",
+    "site/research/site_libs/quarto-contrib/academicons-1.9.2/all.css",
+    "site/research/site_libs/quarto-contrib/academicons-1.9.2/size.css",
+    "site/research/site_libs/quarto-contrib/fontawesome6-0.1.0/all.css",
+    "site/research/site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css",
+    "site/research/site_libs/quarto-html/anchor.min.js",
+    "site/research/site_libs/quarto-html/popper.min.js",
+    "site/research/site_libs/quarto-html/quarto-syntax-highlighting.css",
+    "site/research/site_libs/quarto-html/quarto.js",
+    "site/research/site_libs/quarto-html/tippy.css",
+    "site/research/site_libs/quarto-html/tippy.umd.min.js",
+    "site/research/site_libs/quarto-listing/list.min.js",
+    "site/research/site_libs/quarto-listing/quarto-listing.js",
+    "site/research/site_libs/quarto-nav/headroom.min.js",
+    "site/research/site_libs/quarto-nav/quarto-nav.js",
+    "site/research/site_libs/quarto-search/autocomplete.umd.js",
+    "site/research/site_libs/quarto-search/fuse.min.js",
+    "site/research/site_libs/quarto-search/quarto-search.js",
+    "site/research/site_libs/year-filter/year-filter.js",
+    "site/service/projects/projects.html",
+    "site/service/research/index.html",
+    "site/service/site_libs/bootstrap/bootstrap-icons.css",
+    "site/service/site_libs/bootstrap/bootstrap.min.css",
+    "site/service/site_libs/bootstrap/bootstrap.min.js",
+    "site/service/site_libs/clipboard/clipboard.min.js",
+    "site/service/site_libs/quarto-after-body/quarto-after-body.js",
+    "site/service/site_libs/quarto-contrib/academicons-1.9.2/all.css",
+    "site/service/site_libs/quarto-contrib/academicons-1.9.2/size.css",
+    "site/service/site_libs/quarto-contrib/bootstrap-5.3.0/bootstrap.min.css",
+    "site/service/site_libs/quarto-contrib/fontawesome6-0.1.0/all.css",
+    "site/service/site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css",
+    "site/service/site_libs/quarto-html/anchor.min.js",
+    "site/service/site_libs/quarto-html/popper.min.js",
+    "site/service/site_libs/quarto-html/quarto-syntax-highlighting.css",
+    "site/service/site_libs/quarto-html/quarto.js",
+    "site/service/site_libs/quarto-html/tippy.css",
+    "site/service/site_libs/quarto-html/tippy.umd.min.js",
+    "site/service/site_libs/quarto-nav/headroom.min.js",
+    "site/service/site_libs/quarto-nav/quarto-nav.js",
+    "site/service/site_libs/quarto-search/autocomplete.umd.js",
+    "site/service/site_libs/quarto-search/fuse.min.js",
+    "site/service/site_libs/quarto-search/quarto-search.js"
+  ],
+  "inventoryFilesCount": 182,
+  "unusedCandidatesCount": 47,
+  "unusedCandidatesTotalBytes": 25636431,
+  "unusedCandidates": [
+    {
+      "path": "CNAME",
+      "size": 15
+    },
+    {
+      "path": "files/1.png",
+      "size": 4549
+    },
+    {
+      "path": "files/bib/chicago-author-date.csl",
+      "size": 23652
+    },
+    {
+      "path": "files/bib/chicago-note-bibliography.csl",
+      "size": 47387
+    },
+    {
+      "path": "files/bib/references.bib",
+      "size": 746
+    },
+    {
+      "path": "files/carousel/img5.jpg",
+      "size": 284312
+    },
+    {
+      "path": "files/carousel/img6.jpeg",
+      "size": 542297
+    },
+    {
+      "path": "files/carousel/miami.jpeg",
+      "size": 252656
+    },
+    {
+      "path": "files/carousel/office.jpeg",
+      "size": 300057
+    },
+    {
+      "path": "files/profiles/taminul.jpeg",
+      "size": 322222
+    },
+    {
+      "path": "files/profiles/tts-square.jpeg",
+      "size": 141665
+    },
+    {
+      "path": "html/about.css",
+      "size": 1942
+    },
+    {
+      "path": "html/blog/listing.ejs",
+      "size": 1138
+    },
+    {
+      "path": "html/calendar.css",
+      "size": 4432
+    },
+    {
+      "path": "html/research/listing.ejs",
+      "size": 2166
+    },
+    {
+      "path": "html/research/title-block.html",
+      "size": 2069
+    },
+    {
+      "path": "html/tts.scss",
+      "size": 14914
+    },
+    {
+      "path": "robots.txt",
+      "size": 478
+    },
+    {
+      "path": "site/CNAME",
+      "size": 15
+    },
+    {
+      "path": "site/files/bib/chicago-author-date.csl",
+      "size": 23652
+    },
+    {
+      "path": "site/files/bib/chicago-note-bibliography.csl",
+      "size": 47387
+    },
+    {
+      "path": "site/files/bib/references.bib",
+      "size": 746
+    },
+    {
+      "path": "site/files/profiles/taminul.jpeg",
+      "size": 322222
+    },
+    {
+      "path": "site/files/Resume_Taminul.pdf",
+      "size": 103938
+    },
+    {
+      "path": "site/html/research-scripts.js",
+      "size": 2076
+    },
+    {
+      "path": "site/html/research-styles.css",
+      "size": 3759
+    },
+    {
+      "path": "site/research/conference-papers/armformer.pdf",
+      "size": 7774640
+    },
+    {
+      "path": "site/research/conference-papers/firewall.pdf",
+      "size": 548291
+    },
+    {
+      "path": "site/research/conference-papers/img/armformer.png",
+      "size": 895804
+    },
+    {
+      "path": "site/research/conference-papers/img/diab.png",
+      "size": 50566
+    },
+    {
+      "path": "site/research/conference-papers/img/gastwin.png",
+      "size": 332738
+    },
+    {
+      "path": "site/research/conference-papers/img/gastwinformer.png",
+      "size": 265739
+    },
+    {
+      "path": "site/research/conference-papers/img/weedsense.png",
+      "size": 1261346
+    },
+    {
+      "path": "site/research/conference-papers/weedvision.pdf",
+      "size": 9937752
+    },
+    {
+      "path": "site/research/journal-papers/img/bng1.png",
+      "size": 370037
+    },
+    {
+      "path": "site/research/journal-papers/img/cannabis-conf.png",
+      "size": 872820
+    },
+    {
+      "path": "site/research/journal-papers/img/carbonext.png",
+      "size": 325332
+    },
+    {
+      "path": "site/research/journal-papers/img/carbonext2.png",
+      "size": 271611
+    },
+    {
+      "path": "site/research/journal-papers/img/nature.png",
+      "size": 243978
+    },
+    {
+      "path": "site/site_libs/bibtex/bibtex-functions.js",
+      "size": 1094
+    },
+    {
+      "path": "site/site_libs/bibtex/bibtex-styles.css",
+      "size": 2458
+    },
+    {
+      "path": "site/site_libs/bibtex/bibtex-toggle.js",
+      "size": 1106
+    },
+    {
+      "path": "site/site_libs/quarto-listing/list.min.js",
+      "size": 19488
+    },
+    {
+      "path": "site/site_libs/quarto-listing/quarto-listing.js",
+      "size": 6881
+    },
+    {
+      "path": "site/site_libs/year-filter/year-filter.js",
+      "size": 1162
+    },
+    {
+      "path": "site/status.json",
+      "size": 531
+    },
+    {
+      "path": "sitemap.xml",
+      "size": 2565
+    }
+  ],
+  "safeDeleteCount": 0,
+  "safeDeleteTotalBytes": 0,
+  "safeDelete": [],
+  "notes": [
+    "This audit is conservative. Anything ambiguous is treated as referenced.",
+    "Review safeDelete list; only those are intended for automatic deletion in safe mode."
+  ]
+}
