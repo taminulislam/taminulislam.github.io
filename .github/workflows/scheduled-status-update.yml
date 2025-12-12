@@ -27,6 +27,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          if [[ "${GITHUB_EVENT_NAME:-}" == "workflow_dispatch" ]]; then
+            echo "Manual dispatch; skipping time gate."
+            exit 0
+          fi
           HOUR="$(TZ=America/New_York date +%H)"
           echo "Local hour (America/New_York) is: $HOUR"
           if [[ "$HOUR" != "01" && "$HOUR" != "18" ]]; then
@@ -56,8 +60,11 @@ jobs:
             exit 0
           fi
 
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # For GitHub contribution attribution, the commit AUTHOR email must be
+          # associated with your GitHub account. Using your noreply email is the
+          # most reliable option.
+          git config user.name "Taminul Islam"
+          git config user.email "taminulislam@users.noreply.github.com"
 
           git commit -m "chore: update site status"
           git push
