@@ -2,7 +2,7 @@ name: Scheduled status update
 
 on:
   schedule:
-    # GitHub cron is UTC. We run hourly and gate on America/New_York local hour
+    # GitHub cron is UTC. We run hourly and gate on America/Chicago local hour
     # to handle daylight saving time correctly.
     - cron: "0 * * * *"
   workflow_dispatch: {}
@@ -24,30 +24,37 @@ jobs:
           fetch-depth: 0
 
       - name: Gate on local hour (America/Chicago)
+        id: gate
         shell: bash
         run: |
           set -euo pipefail
           if [[ "${GITHUB_EVENT_NAME:-}" == "workflow_dispatch" ]]; then
             echo "Manual dispatch; skipping time gate."
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           HOUR="$(TZ=America/Chicago date +%H)"
           echo "Local hour (America/Chicago) is: $HOUR"
           if [[ "$HOUR" != "01" && "$HOUR" != "18" ]]; then
             echo "Not a target hour; exiting."
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+          echo "should_run=true" >> "$GITHUB_OUTPUT"
 
       - name: Setup Python
+        if: steps.gate.outputs.should_run == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Update site/status.json
+        if: steps.gate.outputs.should_run == 'true'
         run: |
           python scripts/update_status.py
 
       - name: Commit and push (only if changed)
+        if: steps.gate.outputs.should_run == 'true'
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
