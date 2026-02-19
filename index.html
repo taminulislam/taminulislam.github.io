@@ -51,6 +51,52 @@ ul.task-list li input[type="checkbox"] {
     padding: 10px;
     border-radius: 15px;
 }
+
+/* Interactive Social Icons */
+.social-icon-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #555;
+    padding: 6px 6px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    width: 44px;
+}
+.social-icon-link i {
+    font-size: 1.8em;
+    width: 1em;
+    height: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.social-icon-link .social-icon-label {
+    font-size: 0;
+    opacity: 0;
+    max-height: 0;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    margin-top: 0;
+}
+.social-icon-link:hover {
+    color: #1976d2;
+    background: rgba(25, 118, 210, 0.08);
+    transform: translateY(-3px);
+}
+.social-icon-link:hover i {
+    transform: scale(1.3);
+    color: #1976d2;
+}
+.social-icon-link:hover .social-icon-label {
+    font-size: 0.65em;
+    opacity: 1;
+    max-height: 20px;
+    margin-top: 4px;
+}
 </style>
 
 
@@ -580,13 +626,33 @@ gtag('event', 'page_view', {
 <td style="text-align: right;">A307E, Engineering Building, 1230 Lincoln Dr, Carbondale, IL 62901, United States</td>
 </tr>
 <tr class="odd" style="border: none;">
-<td colspan="2" style="text-align: right; border: none;">
-  <a href="https://scholar.google.com/citations?user=Kgo_S9sAAAAJ&hl" target="_blank" onclick="trackExternalLink('https://scholar.google.com/citations?user=Kgo_S9sAAAAJ&hl', 'Google Scholar')"><i class="ai ai-google-scholar" style="font-size: 1.8em;"></i></a> | 
-  <a href="https://github.com/taminulislam" target="_blank" onclick="trackExternalLink('https://github.com/taminulislam', 'GitHub')"><i class="fab fa-github" style="font-size: 1.8em;"></i></a> | 
-  <a href="https://www.linkedin.com/in/taminul-islam/" target="_blank" onclick="trackExternalLink('https://www.linkedin.com/in/taminul-islam/', 'LinkedIn')"><i class="bi bi-linkedin" style="font-size: 1.8em;"></i></a> | 
-  <a href="https://www.researchgate.net/profile/Taminul-Islam" target="_blank" onclick="trackExternalLink('https://www.researchgate.net/profile/Taminul-Islam', 'ResearchGate')"><i class="ai ai-researchgate" style="font-size: 1.8em;"></i></a> | 
-  <a href="https://orcid.org/0000-0002-7803-4564" target="_blank" onclick="trackExternalLink('https://orcid.org/0000-0002-7803-4564', 'ORCID')"><i class="ai ai-orcid" style="font-size: 1.8em;"></i></a> | 
-  <a href="https://www.scopus.com/authid/detail.uri?authorId=57561387600" target="_blank" onclick="trackExternalLink('https://www.scopus.com/authid/detail.uri?authorId=57561387600', 'Scopus')"><i class="ai ai-scopus" style="font-size: 1.8em;"></i></a>
+<td colspan="2" style="text-align: center; border: none;">
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 2px;">
+    <a href="https://scholar.google.com/citations?user=Kgo_S9sAAAAJ&hl" target="_blank" onclick="trackExternalLink('https://scholar.google.com/citations?user=Kgo_S9sAAAAJ&hl', 'Google Scholar')" class="social-icon-link" title="Google Scholar">
+      <i class="ai ai-google-scholar"></i>
+      <span class="social-icon-label">Scholar</span>
+    </a>
+    <a href="https://github.com/taminulislam" target="_blank" onclick="trackExternalLink('https://github.com/taminulislam', 'GitHub')" class="social-icon-link" title="GitHub">
+      <i class="fab fa-github"></i>
+      <span class="social-icon-label">GitHub</span>
+    </a>
+    <a href="https://www.linkedin.com/in/taminul-islam/" target="_blank" onclick="trackExternalLink('https://www.linkedin.com/in/taminul-islam/', 'LinkedIn')" class="social-icon-link" title="LinkedIn">
+      <i class="bi bi-linkedin"></i>
+      <span class="social-icon-label">LinkedIn</span>
+    </a>
+    <a href="https://www.researchgate.net/profile/Taminul-Islam" target="_blank" onclick="trackExternalLink('https://www.researchgate.net/profile/Taminul-Islam', 'ResearchGate')" class="social-icon-link" title="ResearchGate">
+      <i class="ai ai-researchgate"></i>
+      <span class="social-icon-label">ResearchGate</span>
+    </a>
+    <a href="https://orcid.org/0000-0002-7803-4564" target="_blank" onclick="trackExternalLink('https://orcid.org/0000-0002-7803-4564', 'ORCID')" class="social-icon-link" title="ORCID">
+      <i class="ai ai-orcid"></i>
+      <span class="social-icon-label">ORCID</span>
+    </a>
+    <a href="https://www.scopus.com/authid/detail.uri?authorId=57561387600" target="_blank" onclick="trackExternalLink('https://www.scopus.com/authid/detail.uri?authorId=57561387600', 'Scopus')" class="social-icon-link" title="Scopus">
+      <i class="ai ai-scopus"></i>
+      <span class="social-icon-label">Scopus</span>
+    </a>
+  </div>
 </td>
 </tr>
 </tbody>
@@ -596,6 +662,45 @@ gtag('event', 'page_view', {
 <div style="display: flex; justify-content: center; padding-top: 5x;">
   <img src="./files/award1.png" alt="Doctoral Research Fellowship Award - SIU 2026" style="width: 48%; border-radius: 50%; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
   <img src="./files/award2.png" alt="Falling Walls Lab Illinois - 3rd Place 2025" style="width: 46%; height: auto; max-height: 85%; object-fit: contain; align-self: center; border-radius: 50%; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+</div>
+
+<!-- Scholar Stats Section -->
+<div id="scholar-stats" style="padding-top: 25px;">
+  
+  <!-- Summary Stats -->
+  <div style="display: flex; justify-content: space-around; text-align: center; margin-bottom: 15px; padding: 10px; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 10px;">
+    <div class="scholar-stat-item">
+      <div id="stat-citations" style="font-size: 1.5em; font-weight: 700; color: #1976d2;">600+</div>
+      <div style="font-size: 0.7em; color: #666; font-weight: 600;">Citations</div>
+    </div>
+    <div class="scholar-stat-item">
+      <div id="stat-hindex" style="font-size: 1.5em; font-weight: 700; color: #e91e63;">14</div>
+      <div style="font-size: 0.7em; color: #666; font-weight: 600;">h-index</div>
+    </div>
+    <div class="scholar-stat-item">
+      <div id="stat-i10" style="font-size: 1.5em; font-weight: 700; color: #ff9800;">18</div>
+      <div style="font-size: 0.7em; color: #666; font-weight: 600;">i10-index</div>
+    </div>
+  </div>
+
+  <!-- Publications Chart -->
+  <div style="background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 12px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
+    <h6 style="text-align: center; margin: 0 0 8px 0; font-size: 0.8em; font-weight: 600; color: #444;"><i class="fas fa-file-alt" style="color: #1976d2;"></i> Publications per Year</h6>
+    <canvas id="pubsChart" style="max-height: 160px;"></canvas>
+  </div>
+
+  <!-- Citations Chart -->
+  <div style="background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
+    <h6 style="text-align: center; margin: 0 0 8px 0; font-size: 0.8em; font-weight: 600; color: #444;"><i class="fas fa-quote-left" style="color: #e91e63;"></i> Citations per Year</h6>
+    <canvas id="citationsChart" style="max-height: 160px;"></canvas>
+  </div>
+
+  <div style="text-align: center; margin-top: 8px;">
+    <a href="https://scholar.google.com/citations?user=Kgo_S9sAAAAJ&hl=en" target="_blank" style="font-size: 0.7em; color: #999; text-decoration: none;">
+      <i class="ai ai-google-scholar"></i> View full profile on Google Scholar
+    </a>
+    <div id="scholar-last-updated" style="font-size: 0.6em; color: #bbb; margin-top: 2px;"></div>
+  </div>
 </div>
 
 </div>
@@ -869,5 +974,164 @@ gtag('event', 'page_view', {
     </div>
   </div>
 </footer>
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+
+<script>
+// Fetch scholar data and render charts
+(function() {
+  fetch('./site/scholar_data.json')
+    .then(r => r.json())
+    .then(data => {
+      // Update summary stats
+      const citEl = document.getElementById('stat-citations');
+      const hEl = document.getElementById('stat-hindex');
+      const i10El = document.getElementById('stat-i10');
+      if (citEl) citEl.textContent = data.totalCitations + '+';
+      if (hEl) hEl.textContent = data.hIndex;
+      if (i10El) i10El.textContent = data.i10Index;
+
+      // Update last updated
+      const updEl = document.getElementById('scholar-last-updated');
+      if (updEl && data.lastUpdated) {
+        updEl.textContent = 'Last updated: ' + data.lastUpdated;
+      }
+
+      // Publications Chart
+      const pubYears = Object.keys(data.publicationsPerYear);
+      const pubCounts = Object.values(data.publicationsPerYear);
+      
+      const pubCtx = document.getElementById('pubsChart');
+      if (pubCtx) {
+        new Chart(pubCtx, {
+          type: 'bar',
+          data: {
+            labels: pubYears,
+            datasets: [{
+              data: pubCounts,
+              backgroundColor: pubYears.map((_, i) => {
+                const colors = ['#90caf9', '#64b5f6', '#42a5f5', '#2196f3', '#1976d2', '#1565c0'];
+                return colors[i % colors.length];
+              }),
+              borderRadius: 6,
+              borderSkipped: false,
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                backgroundColor: '#1976d2',
+                titleFont: { size: 12, weight: 'bold' },
+                bodyFont: { size: 11 },
+                padding: 10,
+                cornerRadius: 8,
+                callbacks: {
+                  label: function(ctx) {
+                    return ctx.parsed.y + (ctx.parsed.y === 1 ? ' paper' : ' papers');
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                grid: { display: false },
+                ticks: { font: { size: 10, weight: '600' }, color: '#555' }
+              },
+              y: {
+                beginAtZero: true,
+                grid: { color: 'rgba(0,0,0,0.05)' },
+                ticks: { 
+                  font: { size: 9 }, 
+                  color: '#999',
+                  stepSize: 2,
+                  precision: 0
+                }
+              }
+            },
+            animation: {
+              duration: 1500,
+              easing: 'easeOutBounce'
+            },
+            onHover: function(event, elements) {
+              event.native.target.style.cursor = elements.length ? 'pointer' : 'default';
+            }
+          }
+        });
+      }
+
+      // Citations Chart
+      const citeYears = Object.keys(data.citationsPerYear);
+      const citeCounts = Object.values(data.citationsPerYear);
+      
+      const citeCtx = document.getElementById('citationsChart');
+      if (citeCtx) {
+        new Chart(citeCtx, {
+          type: 'bar',
+          data: {
+            labels: citeYears,
+            datasets: [{
+              data: citeCounts,
+              backgroundColor: citeYears.map((_, i) => {
+                const colors = ['#f48fb1', '#f06292', '#ec407a', '#e91e63', '#d81b60', '#c2185b'];
+                return colors[i % colors.length];
+              }),
+              borderRadius: 6,
+              borderSkipped: false,
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                backgroundColor: '#e91e63',
+                titleFont: { size: 12, weight: 'bold' },
+                bodyFont: { size: 11 },
+                padding: 10,
+                cornerRadius: 8,
+                callbacks: {
+                  label: function(ctx) {
+                    return ctx.parsed.y + ' citations';
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                grid: { display: false },
+                ticks: { font: { size: 10, weight: '600' }, color: '#555' }
+              },
+              y: {
+                beginAtZero: true,
+                grid: { color: 'rgba(0,0,0,0.05)' },
+                ticks: { 
+                  font: { size: 9 }, 
+                  color: '#999',
+                  precision: 0
+                }
+              }
+            },
+            animation: {
+              duration: 1800,
+              easing: 'easeOutBounce',
+              delay: 300
+            },
+            onHover: function(event, elements) {
+              event.native.target.style.cursor = elements.length ? 'pointer' : 'default';
+            }
+          }
+        });
+      }
+    })
+    .catch(err => {
+      console.warn('Could not load scholar data:', err);
+    });
+})();
+</script>
 
 </body></html>
