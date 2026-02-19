@@ -1,16 +1,8 @@
 {
-<<<<<<< HEAD
   "totalCitations": 614,
   "hIndex": 14,
   "i10Index": 17,
   "lastUpdated": "2026-02-19",
-=======
-  "lastUpdated": "2026-02-19",
-  "scholarId": "Kgo_S9sAAAAJ",
-  "totalCitations": 614,
-  "hIndex": 14,
-  "i10Index": 17,
->>>>>>> 36a92498bbf9fe33153824aef623d56f34dd2d80
   "publicationsPerYear": {
     "2021": 1,
     "2022": 3,
@@ -19,16 +11,11 @@
     "2025": 7,
     "2026": 2
   },
-<<<<<<< HEAD
   "citationsPerYear": {
-
     "2022": 8,
     "2023": 80,
     "2024": 212,
     "2025": 272,
     "2026": 31
   }
-=======
-  "citationsPerYear": {}
->>>>>>> 36a92498bbf9fe33153824aef623d56f34dd2d80
 }
