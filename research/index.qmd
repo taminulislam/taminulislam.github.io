@@ -1,0 +1,265 @@
+---
+title: "Publications"
+page-layout: full
+toc: false
+---
+
+```{=html}
+<style>
+  /* Publication type badges */
+  .pub-type-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 8px;
+    color: white;
+    text-decoration: none;
+    vertical-align: middle;
+  }
+
+  .pub-type-journal {
+    background-color: #28a745;
+  }
+
+  .pub-type-conference {
+    background-color: #e91e63;
+  }
+
+  .pub-type-book {
+    background-color: #ff9800;
+  }
+
+  .pub-type-preprint {
+    background-color: #6c757d;
+  }
+
+  /* Year filter styles */
+  .year-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+    padding: 1rem 0;
+  }
+
+  .year-filter .btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border-radius: 20px;
+    border: 1px solid #dee2e6;
+    background: #f8f9fa;
+    color: #495057;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .year-filter .btn:hover {
+    background: #e9ecef;
+  }
+
+  .year-filter .btn.active {
+    background: #011627;
+    color: white;
+    border-color: #011627;
+  }
+
+  /* Publication list styles */
+  .project-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .project-list li.project {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-left: 4px solid #011627;
+    background: #f8f9fa;
+    transition: all 0.2s ease;
+  }
+
+  .project-list li.project:hover {
+    background: #e9ecef;
+  }
+
+  .project-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .project-content {
+    flex: 1;
+  }
+
+  .feature-image {
+    flex: 0 0 200px;
+    max-width: 200px;
+  }
+
+  .feature-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .project-title a {
+    color: #011627;
+    text-decoration: none;
+  }
+
+  .project-title a:hover {
+    color: #3093CF;
+  }
+
+  .project-authors {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-venue {
+    font-style: italic;
+    color: #495057;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 0.75rem;
+  }
+
+  .project-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    background: #011627;
+    color: white;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .project-links a:hover {
+    background: #3093CF;
+  }
+
+  /* Mobile Responsive Styles */
+  @media (max-width: 768px) {
+    .project-container {
+      flex-direction: column;
+    }
+
+    .feature-image {
+      max-width: 100%;
+      width: 100%;
+      text-align: center;
+    }
+
+    .feature-image img {
+      max-width: 300px;
+    }
+  }
+
+  /* Dark mode support */
+  [data-theme="dark"] .project-list li.project {
+    background: #2d2d2d;
+    border-left-color: #64b5f6;
+  }
+
+  [data-theme="dark"] .project-list li.project:hover {
+    background: #3d3d3d;
+  }
+
+  [data-theme="dark"] .project-title a {
+    color: #e0e0e0;
+  }
+
+  [data-theme="dark"] .year-filter .btn {
+    background: #2d2d2d;
+    border-color: #3d3d3d;
+    color: #e0e0e0;
+  }
+
+  [data-theme="dark"] .year-filter .btn:hover {
+    background: #3d3d3d;
+  }
+
+  [data-theme="dark"] .year-filter .btn.active {
+    background: #64b5f6;
+    border-color: #64b5f6;
+    color: #1a1a2e;
+  }
+</style>
+
+<div class="year-filter">
+  <button class="btn active" data-year="all">All</button>
+  <button class="btn" data-year="2025">2025</button>
+  <button class="btn" data-year="2024">2024</button>
+  <button class="btn" data-year="2023">2023</button>
+  <button class="btn" data-year="2022">2022</button>
+  <button class="btn" data-year="2021">2021</button>
+</div>
+
+<div class="project-list">
+  <ul id="publication-list">
+    <!-- Publications will be loaded here by JavaScript -->
+    <li class="project" data-year="2025">
+      <div class="project-container">
+        <div class="project-content">
+          <div class="project-title">
+            <span class="pub-type-badge pub-type-conference">Conference</span>
+            <a href="#">Loading publications...</a>
+          </div>
+          <p class="project-authors">Please enable JavaScript to view publications</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Year filter functionality
+  const yearButtons = document.querySelectorAll('.year-filter .btn');
+  const publications = document.querySelectorAll('.project-list li.project');
+
+  yearButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      // Remove active class from all buttons
+      yearButtons.forEach(b => b.classList.remove('active'));
+      // Add active class to clicked button
+      this.classList.add('active');
+
+      const selectedYear = this.getAttribute('data-year');
+
+      publications.forEach(pub => {
+        if (selectedYear === 'all' || pub.getAttribute('data-year') === selectedYear) {
+          pub.style.display = 'block';
+        } else {
+          pub.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+</script>
+```
+
+For the complete list of publications with detailed information, please visit my [Google Scholar profile](https://scholar.google.com/citations?user=Kgo_S9sAAAAJ&hl=en&oi=ao).

@@ -103,3 +103,6 @@ format:
     reference-location: margin
     footnotes-hover: true
     highlight-style: monokai
+    include-after-body:
+      - text: |
+          <script src="/html/theme-toggle.js"></script>

@@ -44,4 +44,6 @@ Desktop.ini
 
 # Temporary files
 *.tmp
-*.temp 
+*.temp
+/.quarto/
+**/*.quarto_ipynb

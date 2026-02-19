@@ -19,6 +19,15 @@ $gray-900: #212529 !default;
 $black:    #000000 !default;
 $night-owl:#011627 !default;
 
+// Dark mode colors
+$dark-bg: #1a1a2e !default;
+$dark-bg-secondary: #2d2d2d !default;
+$dark-text: #e0e0e0 !default;
+$dark-text-muted: #a0a0a0 !default;
+$dark-link: #64b5f6 !default;
+$dark-code-bg: #2d2d2d !default;
+$dark-border: #3d3d3d !default;
+
 $blue:    #2780e3 !default;
 $indigo:  #6610f2 !default;
 $purple:  #170C3A !default;
@@ -669,5 +678,294 @@ pre.text, pre.sourceCode, .cell-output pre {
 
     @media (max-width: map-get($grid-breakpoints, md)) {
         left: 0;
+    }
+}
+
+// Theme toggle button
+.theme-toggle {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: $white;
+    font-size: 0.85rem;
+    font-family: $navbar-font-family;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        transform: scale(1.05);
+    }
+
+    .toggle-text {
+        display: inline;
+
+        @media (max-width: map-get($grid-breakpoints, sm)) {
+            display: none;
+        }
+    }
+
+    .sun-icon, .moon-icon {
+        display: flex;
+        align-items: center;
+    }
+
+    .sun-icon {
+        display: none;
+    }
+
+    .moon-icon {
+        display: flex;
+    }
+}
+
+// CSS Custom Properties for theming
+:root {
+    --bg-color: #{$white};
+    --bg-secondary: #{$gray-100};
+    --text-color: #{$gray-900};
+    --text-muted: #{$gray-600};
+    --link-color: #{$cyan};
+    --link-hover-color: #{$cyan};
+    --code-bg: #{$gray-200};
+    --border-color: #{$gray-300};
+    --card-bg: #{$white};
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+// Dark mode styles
+[data-theme="dark"] {
+    --bg-color: #{$dark-bg};
+    --bg-secondary: #{$dark-bg-secondary};
+    --text-color: #{$dark-text};
+    --text-muted: #{$dark-text-muted};
+    --link-color: #{$dark-link};
+    --link-hover-color: #{$dark-link};
+    --code-bg: #{$dark-code-bg};
+    --border-color: #{$dark-border};
+    --card-bg: #{$dark-bg-secondary};
+    --shadow-color: rgba(0, 0, 0, 0.3);
+
+    body {
+        background-color: $dark-bg;
+        color: $dark-text;
+    }
+
+    // Main content area
+    .quarto-container,
+    main,
+    #quarto-content {
+        background-color: $dark-bg;
+        color: $dark-text;
+    }
+
+    // Links
+    a {
+        color: $dark-link;
+
+        &:hover {
+            color: lighten($dark-link, 10%);
+        }
+    }
+
+    // Code blocks
+    pre, code {
+        background-color: $dark-code-bg;
+        color: $dark-text;
+    }
+
+    pre.sourceCode {
+        background-color: darken($dark-bg, 5%);
+        border-color: $dark-border;
+    }
+
+    // Inline code
+    p code, li code {
+        background-color: $dark-code-bg;
+        color: $dark-text;
+    }
+
+    // Cards and boxes
+    .card, .callout {
+        background-color: $dark-bg-secondary;
+        border-color: $dark-border;
+        color: $dark-text;
+    }
+
+    // Tables
+    table {
+        color: $dark-text;
+
+        th, td {
+            border-color: $dark-border;
+        }
+
+        thead {
+            background-color: $dark-bg-secondary;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: rgba($dark-bg-secondary, 0.5);
+        }
+    }
+
+    // Sidebar and TOC
+    #quarto-margin-sidebar {
+        .quarto-listing-category {
+            border-left-color: $dark-border;
+
+            .active {
+                color: $dark-link;
+            }
+        }
+    }
+
+    #TOC {
+        a {
+            color: $dark-text-muted;
+
+            &:hover, &.active {
+                color: $dark-link;
+            }
+        }
+    }
+
+    // Blog entries
+    .blog .blog-entry {
+        .description {
+            color: $dark-text-muted;
+        }
+
+        .post-categories .post-category {
+            color: $dark-text-muted;
+            border-color: $dark-border;
+        }
+    }
+
+    // Research/project sections
+    .project-list ul li.project {
+        border-left-color: $dark-link;
+        background-color: $dark-bg-secondary;
+
+        &:hover {
+            background-color: lighten($dark-bg-secondary, 5%);
+        }
+    }
+
+    .project-details-listing {
+        background-color: $dark-bg-secondary;
+    }
+
+    // Teaching section
+    .teaching .course-entry {
+        .course-details {
+            color: $dark-text-muted;
+        }
+    }
+
+    // Talks section
+    .talks .talk-entry ul.talk-links {
+        background-color: $dark-bg-secondary;
+    }
+
+    // CV download button
+    .cv-download {
+        background-color: $dark-link;
+        border-color: $dark-link;
+        color: $dark-bg;
+
+        &:hover {
+            background-color: lighten($dark-link, 10%);
+            border-color: lighten($dark-link, 10%);
+        }
+    }
+
+    // Form elements
+    input, textarea, select {
+        background-color: $dark-bg-secondary;
+        border-color: $dark-border;
+        color: $dark-text;
+
+        &::placeholder {
+            color: $dark-text-muted;
+        }
+    }
+
+    // Blockquotes
+    blockquote {
+        border-left-color: $dark-link;
+        background-color: $dark-bg-secondary;
+        color: $dark-text;
+    }
+
+    // Horizontal rules
+    hr {
+        border-color: $dark-border;
+    }
+
+    // Search
+    .aa-DetachedSearchButton {
+        background-color: $dark-bg-secondary;
+        border-color: $dark-border;
+    }
+
+    // Toggle button in dark mode
+    .theme-toggle {
+        background-color: rgba(100, 181, 246, 0.2);
+        border-color: rgba(100, 181, 246, 0.4);
+        color: $dark-text;
+
+        &:hover {
+            background-color: rgba(100, 181, 246, 0.3);
+        }
+
+        .sun-icon {
+            display: flex;
+        }
+
+        .moon-icon {
+            display: none;
+        }
+    }
+
+    // Quarto title block
+    #title-block-header {
+        color: $dark-text;
+
+        .description {
+            color: $dark-text-muted;
+        }
+    }
+
+    // News/awards section with icons
+    .news-item, .award-item {
+        color: $dark-text;
+    }
+
+    // Images - slight brightness adjustment for better visibility
+    img:not(.no-dark-adjust) {
+        filter: brightness(0.9);
+    }
+}
+
+// System preference detection (initial load before JS)
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --bg-color: #{$dark-bg};
+        --bg-secondary: #{$dark-bg-secondary};
+        --text-color: #{$dark-text};
+        --text-muted: #{$dark-text-muted};
+        --link-color: #{$dark-link};
+        --link-hover-color: #{$dark-link};
+        --code-bg: #{$dark-code-bg};
+        --border-color: #{$dark-border};
+        --card-bg: #{$dark-bg-secondary};
+        --shadow-color: rgba(0, 0, 0, 0.3);
     }
 }
