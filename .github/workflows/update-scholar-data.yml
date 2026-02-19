@@ -16,6 +16,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,6 +32,7 @@ jobs:
         run: pip install scholarly
 
       - name: Fetch Google Scholar data
+        timeout-minutes: 5
         run: python scripts/fetch_scholar_data.py
 
       - name: Commit and push (only if changed)

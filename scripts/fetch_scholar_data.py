@@ -13,25 +13,48 @@ Usage:
 from __future__ import annotations
 
 import json
-import time
+import signal
+import sys
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
 try:
-    from scholarly import scholarly
+    from scholarly import scholarly, ProxyGenerator
 except ImportError:
     print("ERROR: 'scholarly' package not installed. Run: pip install scholarly")
     raise SystemExit(1)
 
 SCHOLAR_ID = "Kgo_S9sAAAAJ"
 OUTPUT_PATH = Path("site") / "scholar_data.json"
+TIMEOUT_SECONDS = 120  # 2-minute timeout for the entire fetch
+
+
+class TimeoutError(Exception):
+    pass
+
+
+def _timeout_handler(signum, frame):
+    raise TimeoutError("Google Scholar fetch timed out")
 
 
 def fetch_scholar_data(scholar_id: str) -> dict:
     """Fetch author profile and publication data from Google Scholar."""
+
+    # Set up a free proxy to avoid Google blocking GitHub Actions IPs
+    print("Setting up free proxy...")
+    try:
+        pg = ProxyGenerator()
+        pg.FreeProxies()
+        scholarly.use_proxy(pg)
+        print("Proxy configured successfully.")
+    except Exception as e:
+        print(f"Warning: Could not set up proxy ({e}). Trying without proxy...")
+
     print(f"Fetching scholar profile: {scholar_id}")
     author = scholarly.search_author_id(scholar_id)
+    # Only fetch basics and indices — skip filling individual publications
+    # to avoid being blocked by Google
     author = scholarly.fill(author, sections=["basics", "indices", "publications"])
 
     total_citations = author.get("citedby", 0)
@@ -74,12 +97,25 @@ def fetch_scholar_data(scholar_id: str) -> dict:
 
 
 def main() -> int:
+    # Set a timeout (Unix only; on Windows signal.SIGALRM is not available)
+    if hasattr(signal, "SIGALRM"):
+        signal.signal(signal.SIGALRM, _timeout_handler)
+        signal.alarm(TIMEOUT_SECONDS)
+        print(f"Timeout set to {TIMEOUT_SECONDS}s")
+
     try:
         data = fetch_scholar_data(SCHOLAR_ID)
+    except TimeoutError:
+        print(f"ERROR: Timed out after {TIMEOUT_SECONDS}s.")
+        print("Keeping existing data if available.")
+        return 1
     except Exception as e:
         print(f"ERROR fetching scholar data: {e}")
         print("Keeping existing data if available.")
         return 1
+    finally:
+        if hasattr(signal, "SIGALRM"):
+            signal.alarm(0)  # Cancel the alarm
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(
